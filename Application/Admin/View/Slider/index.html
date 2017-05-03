@@ -1,0 +1,117 @@
+<extend name="Public/base" />
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>幻灯列表：当有启用状态的幻灯时前台自动开启幻灯切换</h2>
+    </div>
+    <div class="cf">
+        <div class="fl">
+            <a class="btn" href="{:U('add')}">新 增</a>
+            <button class="btn ajax-post" url="{:U('changeStatus?method=resumeSlider')}" target-form="ids">启 用</button>
+            <button class="btn ajax-post" url="{:U('changeStatus?method=forbidSlider')}" target-form="ids">禁 用</button>
+            <button class="btn ajax-post confirm" url="{:U('changeStatus?method=deleteSlider')}" target-form="ids">删 除</button>
+            <button class="btn list_sort" url="{:U('sort',array('pid'=>I('get.pid',0)),'')}">排 序</button>
+        </div>
+        <!-- 高级搜索 -->
+        <div class="search-form fr cf">
+            <div class="sleft">
+                <input type="text" name="title" class="search-input" value="{:I('title')}" placeholder="请输入接收用户ID或者标题">
+                <a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+        <table>
+            <thead>
+                <tr>
+                    <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+                    <th class="">ID</th>
+                    <th class="">类型</th>
+                    <th class="">标题</th>
+                    <th class="">封面</th>
+                    <th class="">发布时间</th>
+                    <th class="">状态</th>
+                    <th class="">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <notempty name="_list">
+                    <volist name="_list" id="vo">
+                        <tr>
+                            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+                            <td>{$vo.id} </td>
+                            <td>{$vo.type}</td>
+                            <td>{$vo.title}</td>
+                            <td><img src="{$vo.cover_id|get_cover='path'}" width="120"></td>
+                            <td>{$vo.create_time|time_format}</td>
+                            <td>{$vo.status_text}</td>
+                            <td>
+                                <a href="{:U('edit?id='.$vo['id'])}">编辑</a>
+                                <eq name="vo.status" value="1">
+                                <a href="{:U('changeStatus?method=forbidSlider&id='.$vo['id'])}" class="ajax-get">禁用</a>
+                                <else/>
+                                <a href="{:U('changeStatus?method=resumeSlider&id='.$vo['id'])}" class="ajax-get">启用</a>
+                                </eq>
+                                <a href="{:U('changeStatus?method=deleteSlider&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
+                            </td>
+                        </tr>
+                    </volist>
+                <else/>
+                    <td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+                </notempty>
+            </tbody>
+        </table>
+    </div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <script type="text/javascript">
+        //搜索功能
+        $("#search").click(function(){
+            var url = $(this).attr('url');
+            var query  = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+            query = query.replace(/^&/g,'');
+            if( url.indexOf('?')>0 ){
+                url += '&' + query;
+            }else{
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+
+        //点击排序
+        $('.list_sort').click(function(){
+            var url = $(this).attr('url');
+            var ids = $('.ids:checked');
+            var param = '';
+            if(ids.length > 0){
+                var str = new Array();
+                ids.each(function(){
+                    str.push($(this).val());
+                });
+                param = str.join(',');
+            }
+
+            if(url != undefined && url != ''){
+                window.location.href = url + '/ids/' + param;
+            }
+        });
+
+        //回车搜索
+        $(".search-input").keyup(function(e){
+            if(e.keyCode === 13){
+                $("#search").click();
+                return false;
+            }
+        });
+        //导航高亮
+        highlight_subnav('{:U('Slider/index')}');
+    </script>
+</block>

@@ -1,0 +1,44 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>新增评论</h2>
+    </div>
+    <form action="{:U(save)}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">内容模型<span class="check-tips">（内容模型）</span></label>
+            <div class="controls">
+                <select name="app">
+                    <volist name="Think.config.CONTENT_APP" id="comment_app">
+                        <option value="{$key}">{$comment_app}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">内容ID<span class="check-tips">（内容ID）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="cid" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">评论内容</label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="content"></textarea>
+                </label>
+            </div>
+        </div>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Comment/index')}');
+    </script>
+</block>

@@ -1,0 +1,49 @@
+<block name="header">
+    <div class='header'>
+         <div class='wrapper clearfix'>
+              <div class='logo'><a href='index-3.html'><img src='__IMG__/qximg/logo.png'></a></div>
+              <div class='nav'>
+                   <ul>
+                      <foreach name="menu" item="m">
+                        <li class=<if condition="$current_cateid eq $m['id']">'list current'<else />'list'</if>>
+                           <a href='{$m|get_nav_url}'>{$m.title}</a>
+                        </li>
+                      </foreach>
+                   </ul>
+              </div>
+         </div>
+    </div>  
+</block>
+<!-- <div class="newfloat">
+        <ul>
+            <li class="lia hover">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=3268644232&site=qq&menu=yes" class="qq">业务咨询</a>
+            </li>
+            <li class="lia hover">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=3268644232&site=qq&menu=yes" class="sh">售后服务</a>
+            </li>
+            <li class="fif litel hover">
+                <p>400电话</p>
+                <div class="tel">400-800-6790</div>
+            </li>
+            <li class="litel hover">
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3268644232&amp;site=qq&amp;menu=yes" target="_blank" class="ts">在线投诉</a>
+                <div class="tel"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3268644232&amp;site=qq&amp;menu=yes" target="_blank">13388888888</a></div>
+            </li>
+        </ul>
+    </div>
+    <section id="home" class="slider-banner">
+            <div class="main-slider">
+                <ul class="slides">
+                    <li>
+                        <img src="__IMG__/pin_123.jpg" alt="" class="">
+                       
+                    </li>
+                    <li>
+                        <img src="__IMG__/pin_124.jpg" alt="" class="">
+                      
+                    </li>
+                </ul>
+            </div>
+            <div class="mouse-down "><a href="#about" class="page-scroll"><i class="ion-mouse"></i></a></div>
+        </section> -->

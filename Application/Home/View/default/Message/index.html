@@ -1,0 +1,63 @@
+<extend name="Base/common" />
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">消息中心</h1>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div class="message">
+            <div><legend class="legend">消息中心</legend></div>
+            <ul class="nav nav-pills">
+                <li <eq name="tab" value="unread"> class="active"</eq> >
+                    <a href="{:U('Message/index',array('tab'=>'unread'))}">未读消息</a>
+                </li>
+                <li <eq name="tab" value="all"> class="active"</eq> >
+                    <a href="{:U('Message/index',array('tab'=>'all'))}">全部消息</a>
+                </li>
+                <li <eq name="tab" value="system"> class="active"</eq> >
+                    <a href="{:U('Message/index',array('tab'=>'system'))}">系统消息</a>
+                </li>
+                <li <eq name="tab" value="user"> class="active"</eq> >
+                    <a href="{:U('Message/index',array('tab'=>'user'))}">用户消息</a>
+                </li>
+                <li <eq name="tab" value="app"> class="active"</eq> >
+                    <a href="{:U('Message/index',array('tab'=>'app'))}">应用消息</a>
+                </li>
+            </ul>
+            <if condition="count($messages) eq 0"><p class="text-muted" style="text-align: center; font-size: 2em;"><br><br>该分类暂无消息<br><br><br></p></if>
+            <volist name="messages" id="message">
+                <div class="media"">
+                    <a class="pull-left" href="#">
+                        <img src="{$message.from_id|get_user_info='avatar'|get_cover='path'}" width="60" height="60"/>
+                    </a>
+                    <div class="media-body">
+                        <h7 class="media-heading">
+                            <eq name="message.is_read" value="0">
+                                <span class="label label-danger">未读</span>
+                            <else/>
+                                <span class="label label-success">已读</span>
+                            </eq>
+                            <a href="{:U('Message/detail',array('id'=>$message['id']))}">{$message.title}</a>
+                            <span class="time pull-right">{$message.create_time|date='Y-m-d H:i',###}</span>
+                        </h7>
+                        <div>{$message.content|html2text|msubstr=0,120,'utf-8',true}</div>
+                    </div>
+                </div>
+            </volist>
+            {$page}
+        </div>
+    </div>
+</block>
+
+<block name="side">
+    <div class="col-xs-12 col-sm-3">
+        <include file="User/side"/>
+    </div>
+</block>

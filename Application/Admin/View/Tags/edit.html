@@ -1,0 +1,41 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>新增标签</h2>
+    </div>
+    <form action="{:U(save)}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">标签<span class="check-tips">（标签）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="title" value="{$data.title}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">标签描述</label>
+            <div class="controls">
+                <label class="textarea input-large">
+                    <textarea name="description">{$data.description}</textarea>
+                </label>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">排序<span class="check-tips">（序号越小排序越靠前）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="sort" value="{$data.sort}">
+            </div>
+        </div>
+        <div class="form-item">
+            <input type="text" class="text input-large hidden" name="id" value="{$data.id}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Tags/index')}');
+    </script>
+</block>

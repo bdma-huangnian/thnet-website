@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>同好宝商户端下载</title>
+	<meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.pupbg{position:fixed;bottom:0;left:0;background:rgba(0, 0, 0, 0.6);z-index:999;width:100%;overflow:hidden;height:100%}
+		#bgbox{ text-align:right;display: none; }
+		#bgbox img{ max-width: 80%;}
+	</style>
+</head>
+<body>
+<section class="sharedown layout_box scroll_ov ">
+	<div class="wenzi">
+		<img src="img/wenzi1.png" class="wenzi1">
+	</div>
+	<div class="hd">
+		<img src="img/tele1.png">
+	</div>
+<!--	<div class="codebox t-c">
+		<h3 class="n">我的邀请码</h3>
+		<h1 id="codeID" class="n"></h1>
+	</div> -->
+	<div id="signbtn" data-id="0" class="signbtn radius_03" ></div>
+	<div id="signbtn1" data-id="1" class="signbtn radius_03" ></div>
+</section>
+<section id="bgbox" class="pupbg">
+	<img src="img/shareImage.png" id="share"/>
+</section>
+<!--footer-->
+<script src="js/jquery.js"></script>
+<script src="js/arttemplate.js"></script>
+<script src="js/utils.js"></script>
+<script>
+$(function(){ 
+	var CFG = window.qixiang.config;
+    var UTL = new window.qixiang.utils;
+	var code= UTL.getUrlParam('code');
+	console.log(code);
+	if(code) {
+		$("#codeID").html(code);
+	}
+	$(function(){
+		$(".signbtn").click(function(){
+		    var id = $(this).data("id");
+			console.log(id);
+			goDownload(id);
+		});
+	});
+	// 去下载
+	function goDownload(id) {
+		var u = navigator.userAgent, app = navigator.appVersion;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+		var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+		// 是微信内部webView
+		if (is_weixn() || is_Ali()) {
+			$("#bgbox").show();
+			return false;
+		}
+		// 是PC端
+		if (IsPC()) {
+			window.location.href = 'http://www.qixiangnet.com';  // 公司主页
+		}
+		// 是安卓浏览器
+		if (isAndroid && id == 0) {
+			window.location.href = 'http://data.zctongz.com/apk/cn.iaapp.app.tonghaobaoseller_1.0_20170228152706-release.apk'; // 跳安卓端下载地址
+		}
+		// 是iOS浏览器
+		if (isIOS && id == 1) {
+			window.location.href = 'https://itunes.apple.com/us/app/%E5%90%8C%E5%A5%BD%E5%AE%9D%E5%95%86%E6%88%B7%E7%AB%AF/id1187537409?l=zh&ls=1&mt=8'; // 跳ios下载地址
+		}
+	}
+
+	// 是微信浏览器
+	function is_weixn(){
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i)=="micromessenger") {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// 是支付宝
+	function is_Ali(){
+		var ua = navigator.userAgent;
+		if(ua.match(/AliApp/i)=="AliApp") {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function IsPC() {
+		var userAgentInfo = navigator.userAgent;
+		var Agents = ["Android", "iPhone",
+			"SymbianOS", "Windows Phone",
+			"iPad", "iPod"];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				flag = false;
+				break;
+			}
+		}
+		return flag;
+	}
+  	 
+});
+</script>
+</body>
+</html>

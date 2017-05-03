@@ -1,0 +1,74 @@
+<extend name="Base/common"/>
+
+<block name="content">
+<section>
+    <div class="i-ban box_skitter box_skitter_large por ovh">
+        <ul>
+            <li>
+                <img src="__IMG__/slider.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider2.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider3.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <!-- <li>
+                <img src="http://www.bocweb.cn/upload/201609/ac2aac7faef872bcf7420d8162d66dbc.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201611/99d376085d6d1520ae398e666af2bea1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201608/018641b3d5ca283856214e3b8db54c23.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="grid" id="macontainer">
+                    <article:list name="product" cate="$cate_id" child="true" row="10">
+                        <include file="News/product"/>
+                    </article:list>
+                    <article:page cate="$cate_id" row="10" />
+                <div>
+        	</div>
+        </div> 
+    </div>
+</section>
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__JS__/jquery.easing.min.js"></script>
+    <link rel="stylesheet" href="__CSS__/skitter.styles.css">
+    <script type="text/javascript" src="__JS__/jquery.skitter.js"></script>
+    <script src="__JS__/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="__JS__/masonry.pkgd.min.js"></script>
+    <script>
+    $(function(){
+        $('.box_skitter_large').skitter({
+            animation: 'cubeHide',
+            interval: 2500,
+            navigation: false,
+            numbers: false
+        });
+    })
+    </script>
+    <script type="text/javascript">
+        var container = $('#macontainer');
+
+        imagesLoaded(container,function(){
+            container.masonry({
+                itemSelector : '.grid-item',
+                columnWidth: 326
+            });
+        });
+    </script>
+   
+</block>

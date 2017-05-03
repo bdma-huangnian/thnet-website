@@ -1,0 +1,65 @@
+<div class="well well-sm">
+    <div class="user">
+        <a href="{:U('/Tweet/space/uid/'.$uid)}"><img class="avatar" src="{$uid|get_user_info='avatar'|get_cover='path'}"/></a>
+        <a class="username" href="{:U('/Tweet/space/uid/'.$uid)}">{$uid|get_user_info='nickname'}</a>
+    </div>
+    <form class="tweet_post" action="{:U('Tweet/save')}" method="post" role="form">
+        <div class="content">
+            <textarea name="content" class="form-control auto-height" style="height: 100px;"
+                <?php if(!$uid): ?>disabled="disabled" placeholder="尚未登录，登陆后发布微博！"
+            <?php else: ?>placeholder="写点什么吧～"<?php endif; ?>>
+            </textarea>
+        </div>
+        <div class="foot clearfix">
+            <div class="pull-left hidden-xs upload-img-tweet">
+                <a href="#" class="btn btn-outline" id="upload_picture_tweet">上传图片</a>
+                <img class="picture_preview" style="margin-top: -5px;margin-left: 10px;height: 34px;">
+                <input type="hidden" name="picture" id="picture"/>
+            </div>
+            <div class="pull-right">
+                <empty name="uid">
+                    <a href="#" class="btn btn-outline" data-toggle="modal" data-target="#login-modal">注册</a>
+                    <a href="#" class="btn btn-outline" data-toggle="modal" data-target="#login-modal">登录</a>
+                <else />
+                    <button id="submit" type="submit" class="btn btn-outline ajax-post pull-right block-xs" target-form="tweet_post">发 表<span class="hidden-xs">Ctrl+Enter</span></button>
+                </empty>
+            </div>
+        </div>
+        <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+        <script type="text/javascript">
+            //上传图片
+            /* 初始化上传插件 */
+            $("#upload_picture_tweet").uploadify({
+                "height"          : 34,
+                "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                "fileObjName"     : "download",
+                "buttonText"      : "上传图片",
+                "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+                "width"           : 100,
+                'removeTimeout'      : 1,
+                'fileTypeExts'      : '*.jpg; *.png; *.gif;',
+                "onUploadSuccess" : uploadPicture
+            });
+            function uploadPicture(file, data){
+                var data = $.parseJSON(data);
+                var src = '';
+                if(data.status){
+                    $("input#picture").attr("value",data.id);
+                    src = data.url || '__ROOT__' + data.path
+                    $(".upload-img-tweet .picture_preview").attr("src", src);
+                    $("#upload_picture_tweet-button .uploadify-button-text").html("重新上传");
+                } else {
+                    swal({
+                        type: "error",
+                        title: "Oops...",
+                        text: data.info,
+                        timer: 2000
+                    });
+                    setTimeout(function(){
+                        $(that).removeClass('disabled').prop('disabled',false);
+                    },2000);
+                }
+            }
+        </script>
+    </form>
+</div>

@@ -1,0 +1,88 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>新增幻灯</h2>
+    </div>
+    <form action="{:U(save)}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">幻灯类型<span class="check-tips">（幻灯片类型）</span></label>
+            <div class="controls">
+                <select name="type">
+                    <option value="0">图片</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">标题<span class="check-tips">（标题）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="title" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">幻灯图片</label>
+            <div class="controls">
+                <input type="file" id="upload_picture">
+                <input type="hidden" name="cover_id" id="cover_id"/>
+                <div class="upload-img-box"></div>
+                <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+                <script type="text/javascript">
+                //上传图片
+                /* 初始化上传插件 */
+                $("#upload_picture").uploadify({
+                    "height"          : 30,
+                    "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                    "fileObjName"     : "download",
+                    "buttonText"      : "上传图片",
+                    "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+                    "width"           : 120,
+                    'removeTimeout'      : 1,
+                    'fileTypeExts'      : '*.jpg; *.png; *.gif;',
+                    "onUploadSuccess" : uploadPicture{$field.name},
+                    'onFallback' : function() {
+                        alert('未检测到兼容版本的Flash.');
+                    }
+                });
+                function uploadPicture{$field.name}(file, data){
+                    var data = $.parseJSON(data);
+                    var src = '';
+                    if(data.status){
+                        $("#cover_id").val(data.id);
+                        src = data.url || '__ROOT__' + data.path
+                        $("#cover_id").parent().find('.upload-img-box').html(
+                            '<div class="upload-pre-item"><img src="' + src + '"/></div>'
+                        );
+                    } else {
+                        swal({
+                            type: "error",
+                            title: "Oops...",
+                            text: data.info,
+                            timer: 2000
+                        });
+                        setTimeout(function(){
+                            $(that).removeClass('disabled').prop('disabled',false);
+                        },2000);
+                    }
+                }
+                </script>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">链接地址<span class="check-tips">（点击幻灯片链接地址）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="url" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Message/index')}');
+    </script>
+</block>

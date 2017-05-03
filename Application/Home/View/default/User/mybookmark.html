@@ -1,0 +1,29 @@
+<extend name="Base/common"/>
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">我的文档</h1>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div><legend class="legend">您收藏的文档</legend></div>
+        <div class="list">
+            <volist name="document_list" id="article">
+                <include file="Article/document"/>
+            </volist>
+            {$page}
+        </div>
+    </div>
+</block>
+
+<block name="side">
+    <div class="col-xs-12 col-sm-3">
+      <include file="User/side"/>
+    </div>
+</block>

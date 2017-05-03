@@ -1,0 +1,25 @@
+<extend name="Base/common"/>
+
+<block name="sidebutton">
+    <div class="panel panel-outline">
+        <a href="{:U('Article/update')}" class="btn btn-primary btn-block btn-large">我要投稿</a>
+    </div>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div class="list">
+            <ol class="breadcrumb">
+                <li class="active">当前位置：</li>
+                <li><a href="__ROOT__/">首页</a></li>
+                <volist name="rightNav" id="nav">
+                    <li><a href="{:U('Article/lists?category='.$nav[id])}">{$nav.title}</a></li>
+                </volist>
+            </ol>
+            <article:list name="article" cate="$current_category['id']" child="true" row="(int)$current_category['list_row']">
+                <include file="Article/document"/>
+            </article:list>
+            <article:page cate="(int)$current_category['id']" row="(int)$current_category['list_row']" />
+        </div>
+    </div>
+</block>

@@ -1,0 +1,55 @@
+<div class="comment-box">
+    <h1>评论 ({$info.comment})</h1>
+    <div class="comment-list">
+        <volist name="comments" id="comment">
+            <div class="media clearfix">
+                <a class="pull-left" href="{:U('/Tweet/space/uid/'.$comment['uid'])}">
+                    <img src="{$comment.uid|get_user_info='avatar'|get_cover='path'}">
+                </a>
+                <div class="media-body">
+                    <div class="media-heading">
+                        <a class="username" href="{:U('/Tweet/space/uid/'.$comment['uid'])}">{$comment.uid|get_user_info='nickname'}</a>
+                        <span class="time pull-right">{$comment.update_time|date='Y-m-d H:i',###} #{$i}</span>
+                    </div>
+                    <div class="comment-content text-justify">
+                        {$comment.content|sensitive_filter}
+                        <php> if((int)$comment['uid'] !== (int)$uid):</php>
+                            <a href="#comment_content" class="reply" comment_id="{$comment.id}" username="{$comment.uid|get_user_info='nickname'}">
+                                <span style="color:#bbb;" class="fa fa-reply"></span>
+                            </a>
+                        <php>endif;</php>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>
+    <php>if(C('USER_COMMENT_CLOSE')):</php>
+        <div class="comment clearfix">
+            <empty name="uid">
+                <a href="#" class="btn btn-outline" data-toggle="modal" data-target="#login-modal">登录</a> 后才能发表评论
+            <else />
+                <form action="{:U('Comment/save')}" method="post" class="form comment-form">
+                    <div class="form-group">
+                        <div class="controls">
+                            <textarea id="comment_content" class="form-control" name="content" onkeyup="auto_height(this)"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="pid" value="0">
+                        <input type="hidden" name="cid" value="{$info.id}">
+                        <input type="hidden" name="app" value="{$comment_app}">
+                        <button id="submit" type="submit" class="btn btn-outline ajax-post pull-right block-xs" target-form="comment-form">发 表 评 论 <span class="hidden-xs">Ctrl+Enter</span></button>
+                    </div>
+                </form>
+                <script>
+                    $('.reply').click(function(){
+                        var fid = $(this).attr('comment_id');
+                        var username = $(this).attr('username');
+                        $('input[name=pid]').val(fid);
+                        $('#comment_content').focus().text('@' + username + '：');
+                    });
+                </script>
+            </empty>
+        </div>
+    <php>endif;</php>
+</div>

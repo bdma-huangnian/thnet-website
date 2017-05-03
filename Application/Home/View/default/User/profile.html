@@ -1,0 +1,252 @@
+<extend name="Base/common" />
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">个人中心</h1>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <ul class="nav nav-tabs" id="info-tab">
+            <li class="active"><a href="#profile">基本信息</a></li>
+            <li><a href="#avatar">修改头像</a></li>
+            <li><a href="#sync">绑定同步</a></li>
+            <li><a href="#password">修改密码</a></li>
+        </ul>
+        <br>
+        <div class="tab-content">
+            <div class="tab-pane active" id="profile">
+                <form class="form-horizontal form-userinfo" action="__SELF__" method="post" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">用户ID</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <p class="form-control-static">{$user_info.uid}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">用户名</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <p class="form-control-static">{$ucenter_info.username}</p>
+                            <a href="#">更改用户名</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">邮箱</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <p class="form-control-static">{$ucenter_info.email}</p>
+                            <a href="#">更换邮箱</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">手机号</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <p class="form-control-static">{$ucenter_info.mobile}</p>
+                            <a href="#">更换手机号</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">性别</label>
+                        <div class="col-sm-10 col-lg-11 btn-group" data-toggle="buttons">
+                            <label class="radio-inline btn btn-default <?php if($user_info['sex'] == 1){echo 'active';}?>">
+                                <input type="radio" name="sex" value="1"> 男
+                            </label>
+                            <label class="radio-inline btn btn-default <?php if($user_info['sex'] == 0){echo 'active';}?>">
+                                <input type="radio" name="sex" value="0"> 女
+                            </label>
+                            <label class="radio-inline btn btn-default <?php if($user_info['sex'] == 2){echo 'active';}?>">
+                                <input type="radio" name="sex" value="2"> 保 密
+                            </label>
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">生日</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <input type="text" placeholder="生日" class="form-control date" name="birthday" value="{$user_info.birthday}">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">QQ</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <input type="text" placeholder="QQ" class="form-control" name="qq" value="{$user_info.qq}">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-lg-11 col-sm-offset-2 col-lg-offset-1">
+                        <button type="submit" class="btn btn-outline ajax-post" target-form="form-userinfo">提交修改</button>
+                        <button type="reset" class="btn btn-outline">重 置</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="avatar">
+                <div><legend class="legend">您使用的头像</legend></div>
+                <div class="upload-img-avatar clearfix">
+                    <img class="avatar pull-left" src="{$user_info.avatar|get_cover='path'}"/>
+                    <table class="pull-left">
+                        <tr><td colspan="2" class="avatar_preview">头像预览</td></tr>
+                        <tr>
+                            <td style="padding-right:20px;">
+                                <img class="avatar100" src="{$user_info.avatar|get_cover='path'}"/>
+                            </td>
+                            <td>
+                                <img class="avatar64" src="{$user_info.avatar|get_cover='path'}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:20px;"><a href="#" class="btn btn-outline" id="upload_picture_avatar">上传图片</a></td>
+                            <td style="padding-top:20px;">
+                                <form class="form-avatar" action="{:U('resetAvatar')}">
+                                    <input type="hidden" name="avatar" id="avatar"/>
+                                    <button type="submit" class="btn btn-outline ajax-post" target-form="form-avatar">提交修改</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="sync">
+                <div><legend class="legend">您绑定的第三方账号</legend></div>
+                <table width="100%">
+                    <tr>
+                        <td><span class="fa fa-qq fa-2x"></span></td>
+                        <td><h4>腾讯QQ</h4>绑定腾讯QQ帐号后，您便可使用腾讯QQ帐号登录网站</td>
+                        <td>
+                            <?php if(in_array("QQ", $sync_login)):?>
+                                <a class="pull-right btn btn-outline ajax-get" href="<?=addons_url('SyncLogin://Register/cancelbind',array('type'=>'QQ'))?>">取消绑定</a>
+                            <?php else:?>
+                                <a class="pull-right btn btn-outline" href="{:U('login')}">绑定账号</a>
+                            <?php endif;?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="fa fa-weibo fa-2x"></span></td>
+                        <td><h4>新浪微博</h4>绑定新浪微博帐号后，您便可使用新浪微博帐号登录网站</td>
+                        <td>
+                            <?php if(in_array("SINA", $sync_login)):?>
+                                <a class="pull-right btn btn-outline ajax-get" href="<?=addons_url('SyncLogin://Register/cancelbind',array('type'=>'SINA'))?>">取消绑定</a>
+                            <?php else:?>
+                                <a class="pull-right btn btn-outline" href="{:U('login')}">绑定账号</a>
+                            <?php endif;?>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane" id="password">
+                <div><legend class="legend">修改您的登录密码</legend></div>
+                <form class="form-horizontal form-resetpassword" action="{:u('resetPassword')}" method="post" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">原密码</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <input type="password" class="form-control" placeholder="请输入密码" name="old">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label" for="inputPassword">新密码</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label" for="inputPassword">新密码</label>
+                        <div class="col-sm-10 col-lg-11">
+                            <input type="password" class="form-control" placeholder="请再次输入新密码" name="repassword">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-lg-11 col-sm-offset-2 col-lg-offset-1">
+                        <button type="submit" class="btn btn-outline ajax-post" target-form="form-resetpassword">提 交</button>
+                            <button type="reset" class="btn btn-outline">重 置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                $('#info-tab a:first').tab('show');//初始化显示哪个tab
+                $('#info-tab a').click(function (e) {
+                    e.preventDefault();//阻止a链接的跳转行为
+                    $(this).tab('show');//显示当前选中的链接及关联的content
+                })
+            })
+        </script>
+    </div>
+</block>
+
+<block name="side">
+    <div class="col-xs-12 col-sm-3">
+        <include file="User/side"/>
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <script type="text/javascript">
+        //上传图片
+        /* 初始化上传插件 */
+        $("#upload_picture_avatar").uploadify({
+            "height"          : 34,
+            "swf"             : "__STATIC__/uploadify/uploadify.swf",
+            "fileObjName"     : "download",
+            "buttonText"      : "上传图片",
+            "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+            "width"           : 100,
+            'removeTimeout'      : 1,
+            'fileTypeExts'      : '*.jpg; *.png; *.gif;',
+            "onUploadSuccess" : uploadPicture,
+            'onFallback' : function() {
+                alert('未检测到兼容版本的Flash.');
+            }
+        });
+        function uploadPicture(file, data){
+            var data = $.parseJSON(data);
+            var src = '';
+            if(data.status){
+                $("input#avatar").attr("value",data.id);
+                src = data.url || '__ROOT__' + data.path
+                $(".upload-img-avatar .avatar").attr("src", src);
+                $(".upload-img-avatar .avatar100").attr("src", src);
+                $(".upload-img-avatar .avatar64").attr("src", src);
+                $("#upload_picture_avatar-button .uploadify-button-text").html("重新上传");
+            } else {
+                (data.info);
+                swal({
+                    type: "error",
+                    title: "Oops...",
+                    text: data.info,
+                    timer: 2000
+                });
+                setTimeout(function(){
+                    $(that).removeClass('disabled').prop('disabled',false);
+                },2000);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $('.date').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language:"zh-CN",
+                minView:2,
+                autoclose:true
+            });
+            $('.time').datetimepicker({
+                format: 'yyyy-mm-dd hh:ii',
+                language:"zh-CN",
+                minView:2,
+                autoclose:true
+            });
+        });
+    </script>
+</block>

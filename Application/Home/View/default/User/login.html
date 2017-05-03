@@ -1,0 +1,65 @@
+<extend name="Base/common" />
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">用户登录</h1>
+                <p class="ellipsis">还没有账号? <a href="{:U('User/register')}">立即注册</a></p>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-6">
+        <form class="form login-form clearfix" action="__SELF__" method="post">
+            <div>
+                <legend class="legend">本站账号登录</legend>
+            </div>
+            <div class="form-group">
+                <label class="control-label">账号</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" class="form-control" placeholder="请输入用户名｜邮箱｜手机号" name="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                </div>
+            </div>
+            <php>if(C('WEB_SITE_VERIFY_HOME')):</php>
+                <div class="form-group">
+                    <label class="control-label">验证码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                        <input type="text" class="form-control" placeholder="请输入验证码" name="verify">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
+                </div>
+            <php>endif;</php>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="checkbox">
+                        <label><input type="checkbox">自动登陆</label>
+                        <a href="{:U('forgetPassword')}">忘记密码?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline ajax-post block-xs" target-form="login-form">登 陆</button>
+                <button type="reset" class="btn btn-outline hidden-xs">重 置</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {:Hook('SyncLogin')}
+    </div>
+</block>
+
+<block name="side"></block>

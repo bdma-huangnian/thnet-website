@@ -1,0 +1,23 @@
+<div class="work-wrapper">
+    <div class="pic line">
+        <a class="pull-left" href="{:U('News/detail?type=2&id='.$article['id'])}">
+            <div class="cover"><img class="cover" src="{$article.cover_id|get_cover='path'}"></div>
+        </a>
+    </div>
+    
+    <div class="media-body line">
+        <h3 class="title">
+            <a href="{:U('News/detail?type=2&id='.$article['id'])}" title="{$article.title}" style="color:{$article.color};">{$article.title|getstr=0,32,'utf-8',true}</a>
+        </h3>
+        <p class="lead hidden-xs">{$article.description|getstr=0,50,'utf-8',true}</p>
+        <div class="stats clearfix">
+            <span>
+                <span class="fa fa-eye">阅读( {$article.view} )</span>
+                <span class="fa fa-comments-o">评论( {$article.comment} )</span>
+                <span class="fa fa-thumbs-o-up">点赞( {$article.good} )</span>
+            </span>
+            <span class="time pull-right hidden-xs">{$article.create_time|friendly_date}</span>
+        </div>
+    </div>
+</div>
+<hr>

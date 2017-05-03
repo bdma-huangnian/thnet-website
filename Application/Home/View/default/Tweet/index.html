@@ -1,0 +1,13 @@
+<extend name="Base/common" />
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div class="tweets">
+            <volist name="tweets" id="info">
+                <include file="Tweet/tweet"/>
+            </volist>
+            {$page}
+            <include file="Tweet/add"/>
+        </div>
+    </div>
+</block>

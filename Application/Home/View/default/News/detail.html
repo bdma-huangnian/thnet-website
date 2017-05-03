@@ -1,0 +1,113 @@
+<extend name="Base/common"/>
+
+<block name="content">
+<style>
+.webpro-link {
+    float: right;
+    margin: 20px 0;
+    width: 300px;
+    height: 29px;
+    background: url('http://www.bocweb.cn/img/webpro-bg.jpg') no-repeat;
+}
+.webpro-link a {
+    display: inline-block;
+    width: 114px;
+    height: 29px;
+    float: left;
+    text-align: center;
+    font: bold 14px/29px "微软雅黑";
+    margin: 0;
+}
+</style>
+<section>
+    <div class="i-ban box_skitter box_skitter_large por ovh">
+        <ul>
+            <li>
+                <img src="__IMG__/slider.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider2.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider3.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <!-- <li>
+                <img src="http://www.bocweb.cn/upload/201609/ac2aac7faef872bcf7420d8162d66dbc.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201611/99d376085d6d1520ae398e666af2bea1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201608/018641b3d5ca283856214e3b8db54c23.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-9 ">
+                <div class="sample-content">
+                    <h2>{$document_detail.title}</h2>
+                    <p class="time">时间：{$document_detail.create_time|date="Y-m-d", ###}</p>
+                    <div>
+                  	 {$document_detail.content}
+                    </div>
+		<if condition="$current_cateid eq 11">
+		    <div class="webpro-link">
+        		<a id="wpaqq" href="https://wpa.qq.com/msgrd?v=3&uin=3268644232&site=qq&menu=yes" target="_blank" title="网站建设与网络营销推广" style="color:#888;width:188px;">我也想做这样的网站</a>
+                              
+        		<a href="{$document_detail.link}" target="_blank" style="color:#fff;width:112px;">查看网址</a>
+                                                        
+    		    </div>
+		</if>
+                    <div class="navigator" style="margin-top:80px;">
+                        <span>
+                            <span>上一篇：<if condition="$prev"><a href="{:U('News/detail?id='.$prev['id'])}" class="move">{$prev.title}</a><else />没有了</if></span><br>
+                            <span>下一篇：<if condition="$next"><a href="{:U('News/detail?id='.$next['id'])}" class="move">{$next.title}</a><else />没有了</if></span>
+                        </span>
+                    </div>
+                </div>
+        	</div>
+        	<div class="col-sm-12 col-xs-12 col-md-3 ">
+              <div class="sidebar-right">
+                <div>
+                    <h2 class="zixun">行业资讯</h2>
+                    <a href="#" class="more">更多 >></a>
+                    <div class="clearboth"></div>
+                </div>
+                <div class="related-news">
+                    <ul class="related-news">
+                        <article:recommend name="news" cate_id="1">
+                            <li><a href="{:U('News/detail?type=2&id='.$news['id'])}">{$news.title}</a></li>
+                        </article:recommend>
+                    </ul>
+                </div>
+              	
+              </div>
+        	</div>
+            <div class="clear"></div>
+        </div> 
+    </div>
+</section>
+</block>
+
+<block name="script">
+ <script type="text/javascript" src="__JS__/jquery.easing.min.js"></script>
+<link rel="stylesheet" href="__CSS__/skitter.styles.css">
+<script type="text/javascript" src="__JS__/jquery.skitter.js"></script>
+<script>
+$(function(){
+    $('.box_skitter_large').skitter({
+        animation: 'cubeHide',
+        interval: 2500,
+        navigation: false,
+        numbers: false
+    });
+})
+</script>
+   
+</block>

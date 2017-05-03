@@ -1,0 +1,170 @@
+<extend name="Base/common"/>
+<block name="style">
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+<style type="text/css">
+    body {font-family: '微软雅黑';}
+    a:link {text-decoration: none;color: black;}
+    a:visited {text-decoration: none;color: black;}
+    a:hover {text-decoration: none; color: #ff9600;}
+    a:active {text-decoration: none;color: black;}
+    .help-block {display:none;}
+</style>
+</block>
+<block name="content">
+<section>
+    <div class="i-ban box_skitter box_skitter_large por ovh">
+        <ul>
+            <li>
+                <img src="__IMG__/slider.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider2.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider3.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <!-- <li>
+                <img src="http://www.bocweb.cn/upload/201609/ac2aac7faef872bcf7420d8162d66dbc.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201611/99d376085d6d1520ae398e666af2bea1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201608/018641b3d5ca283856214e3b8db54c23.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-9 ">
+                <div class="sample-content">
+                    <h2>投资合作</h2>
+                    <p class="time">Investigation</p>
+                    <div>
+                        <form action="" method="post">
+                          <div class="form-group">
+                            <label for="companyname">公司名称</label>
+                            <input type="text" class="form-control" id="companyname" placeholder="公司名" aria-describedby="helpBlock1">
+			    <span id="helpBlock1" class="help-block">公司名不能为空.</span>
+                          </div>
+                          <div class="form-group">
+                            <label for="phone">联系电话</label>
+                            <input type="phone" class="form-control" id="phone" placeholder="电话" aria-describedby="helpBlock2">
+			    <span id="helpBlock2" class="help-block">联系电话不能为空.</span>
+                          </div>
+                          <div class="form-group">
+                            <label for="contact">联系人</label>
+                            <input type="text" class="form-control" id="contact" placeholder="联系人" aria-describedby="helpBlock3">
+			    <span id="helpBlock3" class="help-block">联系人不能为空.</span>
+                          </div>
+                          <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea class="form-control" id="message" rows="5"  aria-describedby="helpBlock4"></textarea>
+			    <span id="helpBlock4" class="help-block">留言不能为空.</span>
+                          </div>
+                          <a class="btn btn-default">提交</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12 col-md-3 ">
+              <div class="sidebar-right">
+                <div>
+                    <h2 class="zixun">行业资讯</h2>
+                    <a href="#" class="more">更多 >></a>
+                    <div class="clearboth"></div>
+                </div>
+                <div class="related-news">
+                    <ul class="related-news">
+                        <article:recommend name="news" cate_id="1">
+                            <li><a href="{:U('News/detail?type=2&id='.$news['id'])}">{$news.title}</a></li>
+                        </article:recommend>
+                    </ul>
+                </div>
+                
+              </div>
+            </div>
+            <div class="clear"></div>
+        </div> 
+    </div>
+</section>
+</block>
+
+<block name="script">
+ <script type="text/javascript" src="__JS__/jquery.easing.min.js"></script>
+<link rel="stylesheet" href="__CSS__/skitter.styles.css">
+<script type="text/javascript" src="__JS__/jquery.skitter.js"></script>
+<script>
+$(function(){
+    $('.box_skitter_large').skitter({
+        animation: 'cubeHide',
+        interval: 2500,
+        navigation: false,
+        numbers: false
+    });
+    var name = $('#companyname');
+    var phone = $('#phone');
+    var contact = $('#contact');
+    var message = $('#message');
+
+    $('.btn-default').on('click', function(){
+	if(!name.val()){
+            name.parent().addClass('has-error');
+            $('#helpBlock1').show();
+        }else{
+	    name.parent().removeClass('has-error');
+            $('#helpBlock1').hide();
+	}
+
+	if(!phone.val()){
+	    phone.parent().addClass('has-error');
+	    $('#helpBlock2').show();
+	}else{
+            phone.parent().removeClass('has-error');
+            $('#helpBlock2').hide();
+        }
+
+	if(!contact.val()){
+            contact.parent().addClass('has-error');
+            $('#helpBlock3').show();
+        }else{
+            contact.parent().removeClass('has-error');
+            $('#helpBlock3').hide();
+        }
+
+	if(!message.val()){
+            message.parent().addClass('has-error');
+            $('#helpBlock4').show();
+        }else{
+            message.parent().removeClass('has-error');
+            $('#helpBlock4').hide();
+        }
+
+    	if(name.val() && phone.val() && contact.val() && message.val()){
+	    var url = "{:U('Index/cooperation')}";
+	    $.ajax({
+		url: url,
+		data: {name: name.val(), phone: phone.val(), contact: contact.val(), message: message.val()},
+		success: function(data){
+		    if(data.status == 1){
+			alert('提交成功');
+			window.location = url;
+		    }else{
+			alert('提交失败')
+			}
+		},
+		error: function(data){console.log(data)}
+	    })
+	}
+
+    })
+    
+})
+</script>
+   
+</block>

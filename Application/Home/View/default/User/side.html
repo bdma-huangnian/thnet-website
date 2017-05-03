@@ -1,0 +1,31 @@
+<div class="user-center">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">个人中心</h3>
+        </div>
+        <div class="panel-body">
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <img class="avatar" src="{$user_info.avatar|get_cover='path'}"/>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{$user_info.nickname}</h4>
+                    积分：{$user_info.score}<br>
+                    余额：¥{$user_info.money} <a class="pull-right" href="{:U('Pay/recharge')}">充值</a><br>
+                    粉丝：0<br>
+                    关注：0<br>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div class="list-group">
+        <a href="{:U('Tweet/space')}" class="list-group-item"><span class="glyphicon glyphicon-home"></span> 我的空间</a>
+        <a href="{:U('User/profile')}" class="list-group-item"><span class="glyphicon glyphicon-user"></span> 个人资料</a>
+        <a href="{:U('Article/mydocument')}" class="list-group-item"><span class="glyphicon glyphicon-list"></span> 我的文档</a>
+        <a href="{:U('/Message/index')}" class="list-group-item"><span class="glyphicon glyphicon-comment"></span> 消息中心
+            <neq name="unreadMessageCount" value="0"><span class="badge badge-red">{$unreadMessageCount}</span></neq>
+        </a>
+        <a href="{:U('Article/mybookmark')}" class="list-group-item"><span class="glyphicon glyphicon-star"></span> 我的收藏</a>
+        <a href="{:U('Article/update')}" class="list-group-item"><span class="glyphicon glyphicon-edit"></span> 我要投稿</a>
+    </div>
+</div>

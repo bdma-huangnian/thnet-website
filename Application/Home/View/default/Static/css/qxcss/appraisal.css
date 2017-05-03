@@ -1,0 +1,1165 @@
+.appraisal-process {
+  padding: 40px 0; 
+  padding-bottom: 55px;
+  height: 60px;
+  background:#f6f6f6;
+}
+.appraisal-process > .wrap {
+  position: relative;
+}
+.appraisal-process li {
+  position: absolute;
+  top: 0;
+  color: #666;
+}
+.appraisal-process li > div {
+  width: 140px;
+  height: 75px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: -70px;
+  z-index: 2;
+}
+.appraisal-process li > div > i {
+  width:40px;
+  height:40px;
+  display: inline-block;
+  border:5px solid #fb8400;
+  box-sizing: border-box;
+  border-radius:50px;
+  background: #fff;
+}
+.appraisal-process li > div > i:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  background: #fb8400;
+  border-radius: 14px;
+  margin: 10px auto;
+  transition: 1.5s;
+  opacity: 0;
+  display: none\0;
+}
+.appraisal-process li > div > div {
+  font-size: 18px;
+  margin-top:10px;
+}
+.appraisal-process li > div > div > p {
+  display: inline-block;
+}
+.appraisal-process li > i {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 22px;
+  right: 22px;
+  top:17px;
+  height: 6px;
+  background:#cccccc;
+}
+.appraisal-process li > i:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  transition: 1s;
+  background: #fb8400;
+}
+.appraisal-process li.active {
+  color: #333333;
+}
+.appraisal-process li.active > div > i:after {
+  opacity: 1;
+  display: block\0;
+}
+.appraisal-process li.active > i:after {
+  width: 100%;
+}
+
+.btn-appraisal {
+  display: inline-block;
+  font-size: 16px;
+  padding: 0.75em 1.2em;
+  min-width: 200px;
+  background: #ff9600;
+  color: #fff;
+  border-radius:10px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: .3s;
+  margin: 30px auto;
+}
+.btn-appraisal:hover {
+  background: #e78903;
+  color:#fff;
+}
+
+.ap-01 {
+  left: 70px;
+}
+
+.ap-02 {
+  right: 50%;
+  left: 70px;
+}
+
+.ap-03 {
+  right: 70px;
+  left: 50%;
+}
+
+.appraisal01-title {
+  text-align: center;
+  margin-top: 20px;
+  color: #333333;
+}
+.appraisal01-title h2 {
+  font-size: 40px;
+  font-weight: normal;
+}
+.appraisal01-title p {
+  font-size: 14px;
+  margin-top: 6px;
+  line-height: 24px;
+}
+
+.appraisal01-main {
+  overflow: hidden;
+  text-align: center;
+}
+.appraisal01-main > ul {
+  width: 105%;
+}
+.appraisal01-main li {
+  width: 390px;
+  height: 180px;
+  box-sizing: border-box;
+  transition: .3s;
+  float: left;
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: center;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.appraisal01-main li i {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: relative;
+  margin: 22px auto;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+.appraisal01-main li i:after, .appraisal01-main li i:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: block;
+  transition: .3s;
+  box-sizing: border-box;
+}
+.appraisal01-main li i:before {
+  opacity: 1;
+  display: block\0 ;
+}
+.appraisal01-main li i:after {
+  opacity: 0;
+  display: none\0 ;
+}
+.appraisal01-main li > p {
+  position: relative;
+  z-index: 2;
+}
+.appraisal01-main li .appraisal01-item-bg {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.appraisal01-main li .appraisal01-item-check {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/qximg/i/icon-appraisal01-check%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/icon-appraisal01-check.png) no-repeat center\0;
+  background-size: contain;
+  position: absolute;
+  z-index: 2;
+  right: 12px;
+  bottom: 12px;
+  transition: .3s;
+  opacity: 0;
+  display: none\0 ;
+}
+.appraisal01-main li.active i:before {
+  opacity: 0;
+  display: none\0 ;
+}
+.appraisal01-main li.active i:after {
+  opacity: 1;
+  display: block\0 ;
+}
+.appraisal01-main li.active .appraisal01-item-check {
+  opacity: 1;
+  display: block\0 ;
+}
+.appraisal01-main li.active > .appraisal01-item-bg {
+  border-width: 2px;
+  border-color: #2a2a2a;
+}
+.appraisal01-main li:hover {
+  background: #f7f7f7;
+}
+.appraisal01-main li:hover > .appraisal01-item-bg {
+  border-color: #2a2a2a;
+}
+.appraisal01-main li.checked {
+  background: #fff !important;
+  cursor: inherit;
+}
+.appraisal01-main li.checked > .appraisal01-item-bg {
+  border: 1px dashed #efefef !important;
+}
+
+.appraisal01-01-icon:before {
+  background: url(../../images/qximg/i/appraisal01-01-icon%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-01-icon.png) no-repeat center \0;
+  background-size: contain;
+}
+.appraisal01-01-icon:after {
+  background: url(../../images/qximg/i/appraisal01-01-icon-active%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-01-icon-active.png) no-repeat center \0;
+  background-size: contain;
+}
+
+.appraisal01-02-icon:before {
+  background: url(../../images/qximg/i/appraisal01-02-icon%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-02-icon.png) no-repeat center \0;
+  background-size: contain;
+}
+.appraisal01-02-icon:after {
+  background: url(../../images/qximg/i/appraisal01-02-icon-active%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-02-icon-active.png) no-repeat center \0;
+  background-size: contain;
+}
+
+.appraisal01-03-icon:before {
+  background: url(../../images/qximg/i/appraisal01-03-icon%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-03-icon.png) no-repeat center \0;
+  background-size: contain;
+}
+.appraisal01-03-icon:after {
+  background: url(../../images/qximg/i/appraisal01-03-icon-active%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-03-icon-active.png) no-repeat center \0;
+  background-size: contain;
+}
+
+.appraisal01-04-icon:before {
+  background: url(../../images/qximg/i/appraisal01-04-icon%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-04-icon.png) no-repeat center \0;
+  background-size: contain;
+}
+.appraisal01-04-icon:after {
+  background: url(../../images/qximg/i/appraisal01-04-icon-active%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-04-icon-active.png) no-repeat center \0;
+  background-size: contain;
+}
+
+.appraisal01-05-icon:before {
+  background: url(../../images/qximg/i/appraisal01-05-icon%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-05-icon.png) no-repeat center \0;
+  background-size: contain;
+}
+.appraisal01-05-icon:after {
+  background: url(../../images/qximg/i/appraisal01-05-icon-active%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-05-icon-active.png) no-repeat center \0;
+  background-size: contain;
+}
+
+.appraisal01-06-icon:before {
+  background: url(../../images/qximg/i/appraisal01-06-icon%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-06-icon.png) no-repeat center \0;
+  background-size: contain;
+}
+.appraisal01-06-icon:after {
+  background: url(../../images/qximg/i/appraisal01-06-icon-active%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal01-06-icon-active.png) no-repeat center \0;
+  background-size: contain;
+}
+
+.appraisal02-tab {
+  position: relative;
+  padding-right: 100px;
+  min-height:65px;
+  margin-top: 40px;
+  border-bottom: 1px solid #eeeeee;
+}
+.appraisal02-tab h3 {
+  display: none;
+}
+.appraisal02-tab ul li {
+  display: inline-block;
+  font-size: 24px;
+  color: #666666;
+  margin-right: 55px;
+  height: 48px;
+  line-height: 48px;
+  float: left;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-top: 10px;
+
+}
+.appraisal02-tab ul li:hover {
+  color: #000000;
+}
+.appraisal02-tab ul li h4 {
+  display: inline-block;
+  font-weight: normal;
+}
+.appraisal02-tab ul li span {
+  color: #333333;
+  display: inline-table;
+}
+.appraisal02-tab ul li i {
+  display: inline-table;
+}
+.appraisal02-tab ul li.active {
+  border-bottom:4px solid #000000;
+  color:#000000
+}
+.appraisal02-tab .btn-appraisal-bd-s {
+  position: absolute;
+  right: 0;
+  top: 16px;
+}
+
+.btn-appraisal-bd-s {
+  display: inline-block;
+  min-width: 110px;
+  padding:0 10px;
+  height:40px;
+  border: 1px solid #fb8400;
+  border-radius:10px;
+  background: #fff;
+  line-height:40px;
+  color: #fb8400;
+  transition: .2s;
+  text-align: center;
+  font-size: 14px;
+}
+.btn-appraisal-bd-s:hover {
+  background-color: #fb8400;
+  border-color: #fb8400;
+  color:#fff;
+}
+.btn-appraisal-bd-s:active {
+  background-color: #fb8400;
+  border-color: #fb8400;
+  color:#fff;
+}
+
+.appraisal02-table {
+  margin-right: 312px;
+  color: #333333;
+}
+.appraisal02-table table {
+  border: 1px solid #ededed;
+}
+.appraisal02-table th {
+  background: #fafafa;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 24px 0;
+}
+.appraisal02-table td {
+  border: 1px solid #ededed;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.appraisal02-table tfoot td {
+  padding-right: 16px;
+}
+.appraisal02-table tfoot td > .btn-appraisal-bd-s {
+  margin-left: 14px;
+}
+.appraisal02-table tr.checked .appraisal02-table02 .input-checkbox {
+  opacity: 1;
+  display: block\0 ;
+}
+
+.appraisal02-table01 {
+  width: 140px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.appraisal02-table02 {
+  font-size: 16px;
+  position: relative;
+  width: 170px;
+}
+.appraisal02-table02 label {
+  display: block;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+	padding-right:24px
+}
+.appraisal02-table02 label:hover {
+  color: #000;
+}
+.appraisal02-table02 .input-checkbox {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -8px;
+  transition: .2s;
+  opacity: 0;
+  display: none\0 ;
+}
+.appraisal02-table02:hover .input-checkbox {
+  opacity: 1;
+  display: block\0 ;
+}
+
+.appraisal02-table03 {
+  font-size: 14px;
+}
+.appraisal02-table03 label {
+  display: inline-block;
+  line-height: 20px;
+  padding: 4px;
+  margin: 4px 20px 4px 0;
+  cursor: pointer;
+  transition: .2s;
+  border-radius: 4px;
+  color: #666666;
+}
+.appraisal02-table03 label:hover {
+  background: #fafafa;
+}
+
+.input-checkbox {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #666666;
+  border: none\0;
+  position: relative;
+  overflow: hidden;
+  overflow: inherit\0;
+  vertical-align: middle;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.input-checkbox > input {
+  position: absolute;
+  top: -200%;
+  left: -200%;
+  top: -4px\0;
+  left: -4px\0;
+  width: 16px\0;
+  height: 16px\0;
+}
+.input-checkbox > input ~ span {
+  width: 10px;
+  height: 10px;
+  margin: 2px auto;
+  display: block;
+  background:url(../../images/qximg/i/icon-input-checkbox%403x.png) no-repeat center;
+  background: url(../../images/qximg/i/icon-input-checkbox.png) no-repeat center\0;
+  background-size: contain;
+  opacity: 0;
+  display: none\0;
+  transition: .2s;
+  -webkit-transition: .2s;
+}
+.input-checkbox > input:checked ~ span {
+  opacity: 1 !important;
+  display: block\0 !important;
+}
+
+.input-radio {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #666666;
+  border: none\0;
+  position: relative;
+  overflow: hidden;
+  overflow: inherit\0;
+  vertical-align: middle;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.input-radio > input {
+  position: absolute;
+  top: -200%;
+  left: -200%;
+  top: -4px\0;
+  left: -4px\0;
+  width: 16px\0;
+  height: 16px\0;
+}
+.input-radio > input ~ span {
+  width: 10px;
+  height: 10px;
+  margin: 2px auto;
+  display: block;
+  background: url(../../images/qximg/i/icon-input-checkbox%403x.png) no-repeat center;
+  background: url(../../images/qximg/i/icon-input-checkbox.png) no-repeat center\0;
+  background-size: contain;
+  opacity: 0;
+  display: none\0;
+  transition: .2s;
+  -webkit-transition: .2s;
+}
+.input-radio > input:checked ~ span {
+  opacity: 1 !important;
+  display: block\0 !important;
+}
+
+.appraisal02-check {
+  margin-top: 56px;
+  position: relative;
+  display: none;
+}
+.appraisal02-check.active {
+  display: block;
+}
+
+.appraisal02-check-describe {
+  width: 292px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.6s cubic-bezier(0.42, 0, 0.03, 1.35);
+  background: #fff;
+}
+.appraisal02-check-describe > i {
+  width: 0;
+  height: 0;
+  border-width: 10px 12px 10px 0;
+  border-style: solid;
+  border-color: transparent #e5e5e5 transparent transparent;
+  position: absolute;
+  left: -12px;
+}
+.appraisal02-check-describe > i:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 10px 12px 10px 0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+  margin-left: 1px;
+  position: absolute;
+  left: 1px;
+  top: -10px;
+}
+.appraisal02-check-describe h5 {
+  font-weight: normal;
+  font-size: 16px;
+  color: #333333;
+}
+
+.appraisal02-check-describe-main p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 26px;
+  margin-top: 20px;
+}
+.appraisal02-check-describe-main > i {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 20px auto 0;
+}
+.appraisal02-check-describe-main > i img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.appraisal-button-main {
+  text-align: center;
+}
+.appraisal-button-main .btn-appraisal {
+  margin: 40px 10px;
+}
+
+.appraisal03-wrap {
+  width: 900px;
+ /* min-height: 500px;*/
+}
+
+.appraisal03-main {
+  margin-top: 50px;
+}
+.appraisal03-main > p {
+  font-size: 16px;
+  color: #666666;
+  line-height: 32px;
+}
+.appraisal03-main .btn-appraisal-bd-s {
+  margin-left: 90px;
+}
+.ml0{
+	margin-left:0!important
+}
+.ml10{
+	margin-left:10px!important
+}
+.ml20{
+	margin-left:20px!important
+}
+.appraisal03-money {
+  font-size: 32px;
+  color: #666666;
+  margin-bottom: 34px;
+}
+.appraisal03-money > span {
+  font-size: 50px;
+  color: #353535;
+}
+.appraisal03-money > i {
+  color: #333333;
+}
+.appraisal03-money > p {
+  display: inline-block;
+}
+
+.appraisal03-content {
+  display: none;
+}
+.appraisal03-content.active {
+  display: block;
+}
+.appraisal03-content .appraisal02-tab {
+  padding-right: 0;
+  margin-top: 40px;
+}
+.appraisal03-content .appraisal02-tab li {
+  font-size: 18px;
+}
+.appraisal03-content .appraisal02-table {
+  margin-right: 0;
+}
+.appraisal03-content .appraisal02-table label {
+  cursor: inherit;
+}
+.appraisal03-content .appraisal02-table label:hover {
+  background: none;
+}
+.appraisal03-content .appraisal02-check {
+  margin-top: 25px;
+}
+
+.btn-appraisal-bd {
+  background: #e3e3e3;
+  border: 1px solid #999999;
+  color: #333333;
+  box-sizing: border-box;
+}
+.btn-appraisal-bd:hover {
+  background-color: #eeeeee;
+  border-color: #afafaf;
+}
+.btn-appraisal-bd:active {
+  background-color: #d8d8d8;
+  border-color: #8b8b8b;
+}
+
+.appraisal-main {
+  display: none;
+}
+.appraisal-main.active {
+  display: block;
+}
+
+.btn-function-list > i {
+  display: none;
+}
+.btn-function-list > span {
+  display: block;
+}
+.btn-function-list.active > i {
+  display: block;
+}
+.btn-function-list.active > span {
+  display: none;
+}
+
+@media screen and (max-width: 1210px) {
+  .appraisal01-main li {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .appraisal01-main li {
+    width: 223px;
+  }
+
+  .appraisal02-check-describe {
+    display: none;
+  }
+
+  .appraisal02-table {
+    margin-right: 0;
+  }
+
+  .appraisal03-wrap {
+    width: 710px;
+  }
+
+  .appraisal03-money {
+    font-size: 22px;
+  }
+  .appraisal03-money > span {
+    font-size: 34px;
+  }
+
+  .appraisal03-wrap {
+    min-height: 300px;
+  }
+}
+@media screen and (max-width: 760px) {
+   .appraisal03-main .ml20{
+	margin-left:auto !important;
+	margin-top:10px!important
+   }
+  .fixed {
+    padding-top: 60px;
+  }
+
+  .appraisal01-wrap .wrap {
+    padding-right: 0;
+  }
+
+  .appraisal01-main ul {
+    width: 100%;
+  }
+  .appraisal01-main li {
+    background: #fff !important;
+    width: calc((100% - 30px) / 2);
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+  .appraisal01-main li:nth-child(even) {
+    margin-right: 0;
+  }
+
+  .appraisal01-title h2 {
+    font-size: 26px;
+  }
+  .appraisal01-title p {
+    font-size: 14px;
+  }
+
+  .appraisal-process li > div > div > p {
+    display: block;
+  }
+  .appraisal-process li > div > div > p > span {
+    display: none;
+  }
+
+  .appraisal-process {
+    height: 80px;
+    padding: 20px 0;
+    background: #F7F7F7;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .appraisal-process li > div > div {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .btn-appraisal {
+    display: block;
+  }
+
+  .appraisal01-main .btn-appraisal {
+    margin-right: 15px;
+  }
+
+  .appraisal02-table01 {
+    width: 80px;
+  }
+
+  .appraisal02-table td {
+    font-size: 12px;
+  }
+
+  .appraisal02-table02 {
+    width: 80px;
+  }
+
+  .input-checkbox {
+    margin-right: 3px;
+  }
+
+  .appraisal02-table02 label {
+    padding-right: 20px;
+  }
+
+  .appraisal02-table02 .input-checkbox {
+    opacity: 1;
+    display: block;
+  }
+
+  .appraisal02-table th {
+    font-size: 12px;
+    padding: 16px 0;
+  }
+
+  .appraisal02-tab {
+    padding-right: 0;
+    border: none;
+    margin-top: 20px;
+  }
+  .appraisal02-tab h3 {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    font-weight: lighter;
+  }
+  .appraisal02-tab ul li {
+    margin-right: 15px !important;
+    width: calc((100% - 15px) / 2);
+    background: #e3e3e3;
+    border-radius: 4px;
+    border: 1px solid #D0D0D0 !important;
+    font-size: 16px;
+    padding: 0 15px;
+    color: #333333;
+  }
+  .appraisal02-tab ul li:nth-child(even) {
+    margin-right: 0 !important;
+  }
+  .appraisal02-tab ul li.active {
+    background: #333333;
+    border-color: #333333 !important;
+    color: #fff;
+  }
+  .appraisal02-tab ul li.active span {
+    color: #fff;
+  }
+  .appraisal02-tab .btn-appraisal-bd-s {
+    margin-top: -26px;
+    font-size: 12px;
+  }
+
+  .appraisal02-tab ul li span {
+    float: right;
+  }
+
+  .appraisal02-check {
+    margin-top: 20px;
+  }
+
+  .btn-appraisal-bd-s {
+    font-size: 12px;
+  }
+
+  .appraisal03-wrap {
+    width: auto;
+    min-height: inherit;
+    padding-bottom: 30px;
+  }
+
+  .appraisal03-main {
+    padding-top: 30px;
+    text-align: center;
+  }
+  .appraisal03-main .btn-appraisal-bd-s {
+    margin: 0 auto;
+    display: block;
+    width: 120px;
+  }
+  .appraisal03-main > p {
+    font-size: 14px;
+  }
+
+  .appraisal03-money {
+    text-align: center;
+  }
+  .appraisal03-money > p {
+    display: block;
+  }
+  .appraisal03-money > p > span {
+    display: none;
+  }
+  .appraisal03-money > span:nth-child(3) {
+    display: block;
+    -webkit-transform: rotate(90deg);
+    font-size: 20px;
+  }
+
+  .appraisal-button-main {
+    margin-top: 30px;
+  }
+
+  .appraisal-button-main .btn-appraisal {
+    margin: 10px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .appraisal02-table01 {
+    width: 20px;
+  }
+
+  .appraisal02-tab ul li {
+    font-size: 12px !important;
+    width: calc((100% - 6px) / 2);
+    margin-right: 6px !important;
+  }
+}
+.btn-appraisal-save:hover {
+  background-color: #585858;
+  color: #fff;
+  border-color: #333 !important;
+}
+
+.appraisal-alert {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: -200%;
+  top: -200%;
+  z-index: 10000;
+}
+.appraisal-alert > i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #000;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  transition: 0.3s;
+}
+.appraisal-alert.active {
+  left: 0;
+  top: 0;
+}
+.appraisal-alert.active > i {
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+.appraisal-alert.active .appraisal-alert-wrap {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.appraisal-alert-wrap {
+  width: 533px;
+  height: 450px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -225px;
+  margin-left: -266px;
+  padding: 40px 70px;
+  box-sizing: border-box;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.appraisal-alert-title {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.appraisal-alert-title > h5 {
+  font-size: 16px;
+  color: #333333;
+}
+.appraisal-alert-title > p {
+  font-size: 14px;
+  color: #333333;
+  line-height: 24px;
+}
+
+.appraisal-alert-input {
+  position: relative;
+  margin-top: 20px;
+}
+.appraisal-alert-input input, .appraisal-alert-input textarea {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  outline: inherit;
+  font-size: 14px;
+  z-index: 1;
+}
+.appraisal-alert-input input:focus ~ label, .appraisal-alert-input textarea:focus ~ label {
+  display: none;
+}
+.appraisal-alert-input textarea {
+  height: 110px;
+}
+.appraisal-alert-input .placeholder {
+  font-size: 16px;
+  color: #999999;
+  position: absolute;
+  z-index: 2;
+  line-height: 40px;
+  padding-left: 15px;
+  top: 2px;
+  left: 0;
+  cursor: text;
+}
+
+.appraisal-alert-main {
+  margin-top: 10px;
+}
+
+.appraisal-item-content > .wrap {
+  background: url(../../images/qximg/i/appraisal-item-content-bg.png);
+}
+
+.appraisal-item-content-main {
+  color: #fff;
+  padding: 37px 0;
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.appraisal-item-content-main > h2 {
+  font-size: 32px;
+}
+.appraisal-item-content-main > span {
+  font-size: 14px;
+}
+.appraisal-item-content-main > p {
+  font-size: 16px;
+  margin-top: 30px;
+  line-height: 32px;
+}
+.appraisal-item-content-main .appraisal-item-share {
+  position: absolute;
+  right: 0;
+  top: 40px;
+}
+
+.appraisal-item-share {
+  display: block;
+  width: 92px;
+  height: 30px;
+  line-height: 1;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  text-align: center;
+  color: #333333;
+  background: #e5e5e5;
+  font-size: 14px;
+  transition: .3s;
+  padding-top: 6px;
+  box-sizing: border-box;
+}
+.appraisal-item-share > i {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url(../../images/qximg/i/appraisal-item-share%402x.png) no-repeat center;
+  background: url(../../images/qximg/i/appraisal-item-share.png) no-repeat center \0;
+  background-size: contain;
+  margin-right: 6px;
+}
+.appraisal-item-share > span {
+  position: relative;
+  top: 2px;
+}
+.appraisal-item-share:hover {
+  background-color: #fff;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.appraisal-item-content-stit {
+  padding-top: 30px;
+  font-size: 16px;
+}
+
+.pb60 {
+  padding-bottom: 60px !important;
+}
+
+@media screen and (max-width: 1210px) {
+  .appraisal-item-content > .wrap {
+    width: auto;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .appraisal-item-content-main {
+    width: 710px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .appraisal-item-content-main {
+    width: auto;
+  }
+
+  .appraisal-item-content-main .appraisal-item-share {
+    position: initial;
+    margin-top: 10px;
+  }
+
+  .appraisal-alert .appraisal-alert-wrap {
+    width: 300px;
+    padding: 20px;
+    margin-left: -150px;
+    height: auto;
+  }
+  .appraisal-alert .appraisal-alert-wrap .btn-appraisal {
+    margin: 20px 0;
+    margin-bottom: 0;
+  }
+}
+.fanhui {
+  padding: 5px 15px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  text-align: center;
+  color: #333333;
+  background: #e5e5e5;
+  font-size: 14px;
+  transition: .3s;
+  padding-top: 6px;
+  box-sizing: border-box;
+}

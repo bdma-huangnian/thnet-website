@@ -1,0 +1,11 @@
+<extend name="Base/common" />
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div class="tweets">
+            <include file="Tweet/tweet"/>
+        </div>
+        <include file="Comment/comment"/>
+        {:hook('documentDetailAfter',$info)}
+    </div>
+</block>

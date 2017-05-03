@@ -1,0 +1,80 @@
+<extend name="Base/common"/>
+
+<block name="content">
+<section>
+    <div class="i-ban box_skitter box_skitter_large por ovh">
+        <ul>
+            <li>
+                <img src="__IMG__/slider.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider2.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="__IMG__/slider3.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <!-- <li>
+                <img src="http://www.bocweb.cn/upload/201609/ac2aac7faef872bcf7420d8162d66dbc.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201611/99d376085d6d1520ae398e666af2bea1.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li>
+            <li>
+                <img src="http://www.bocweb.cn/upload/201608/018641b3d5ca283856214e3b8db54c23.jpg" alt="金华同好网络科技有限公司-全网价值营销服务商">
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-9 ">
+                <div class="contents">
+                    <article:list name="article" cate="$cate_id" child="true" row="10">
+                        <include file="News/document"/>
+                    </article:list>
+                    <div class="paginate"><article:page cate="$cate_id" row="10" /></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12 col-md-3 ">
+              <div class="sidebar-right">
+                <div>
+                    <h2 class="zixun">行业资讯</h2>
+                    <a href="#" class="more">更多 >></a>
+                    <div class="clearboth"></div>
+                </div>
+                <div class="related-news">
+                    <ul class="related-news">
+                        <article:recommend name="news" cate_id="1">
+                            <li><a href="{:U('News/detail?type=2&id='.$news['id'])}">{$news.title}</a></li>
+                        </article:recommend>
+                    </ul>
+                </div>
+                
+              </div>
+            </div>
+            <div class="clear"></div>
+        </div> 
+    </div>
+</section>
+</block>
+
+<block name="script">
+ <script type="text/javascript" src="__JS__/jquery.easing.min.js"></script>
+<link rel="stylesheet" href="__CSS__/skitter.styles.css">
+<script type="text/javascript" src="__JS__/jquery.skitter.js"></script>
+<script>
+$(function(){
+    $('.box_skitter_large').skitter({
+        animation: 'cubeHide',
+        interval: 2500,
+        navigation: false,
+        numbers: false
+    });
+})
+</script>
+   
+</block>

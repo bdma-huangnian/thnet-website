@@ -1,0 +1,202 @@
+html {
+        font-size : 20px;
+    }
+    @media only screen and (min-width: 401px){
+        html {
+            font-size: 25px !important;
+        }
+    }
+    @media only screen and (min-width: 428px){
+        html {
+            font-size: 26.75px !important;
+        }
+    }
+    @media only screen and (min-width: 481px){
+        html {
+            font-size: 30px !important; 
+        }
+    }
+    @media only screen and (min-width: 569px){
+        html {
+            font-size: 35px !important; 
+        }
+    }
+    @media only screen and (min-width: 641px){
+        html {
+            font-size: 40px !important; 
+        }
+    }
+	
+* {margin:0;padding:0;border: 0;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+body{font-size:0.7rem;line-height:1;font-family: 'Microsoft Yahei','Sans-Serif','Arial';color:#333333; min-width:320px}
+ul,ol,menu{list-style:none}
+body>img{font-size:1em;line-height:1.5;word-wrap:break-word;-webkit-text-size-adjust:100%; -webkit-touch-callout: none}
+img{border:none;vertical-align:middle;}
+ /*img { pointer-events: none; } 禁止移动端浏览器长按对图片弹出保存 */
+table {border-collapse:collapse;border-spacing:0}
+a{text-decoration: none;cursor:pointer; color:#333333}
+a:hover,a:visited,a:active,a:link{text-decoration: none;}
+address,em,i{font-style: normal}
+input,select,button{vertical-align: middle}
+input,select,button,textarea{font-size:100%;font-family:inherit}
+input{appearance:none;-webkit-appearance:none;}
+input[type=text] {background-color:#fff;border:1px solid #ccc;box-shadow: 0 0 0 rgba(0,0,0,0); border:none}
+input,textarea{resize:none;outline:none;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* 去除IOS按钮美化 */
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+/* 去除链接背景阴影 */
+span,em,
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+li{list-style:none}
+a,li,span,em{cursor:pointer;}  /* 解决ios下点击无效 */  
+.bono{border:none !important}
+
+.txt-r{text-align: right}
+.txt-c{text-align: center}
+.f-l {float:left}
+.f-r {float:right}
+.t-r {text-align:right}
+.t-l {text-align:left}
+.t-c {text-align:center}
+.fn {float:none}
+.rel {position:relative}
+.abs {position:absolute}
+.mg0{ margin:0 !important}
+.pa0{ padding:0 !important}
+.mg05{ margin:0.5rem}
+.ml05{ margin-left:0.5rem}
+.mr05{ margin-right:0.5rem}
+.mt10{ margin-top:0.5rem}
+.mt24{ margin-top:2.5rem}
+.mb10{margin-bottom:0.5rem}
+.pd05{ padding:0 0.5rem}
+.pb3{padding-bottom:3rem}
+.mb3{margin-bottom:3rem}
+.ib {display:inline-block}
+.c-fix:after {content:"\0020";display:block;visibility:hidden;clear:both}
+.clear{clear:both;}
+.fix-f {float:left;width:100%}
+.fw {font-family:Microsoft YaHei}
+.n{font-weight:normal}
+.wld{font-weight:bold}
+
+/*公用类*/
+.solid_rus{border:0.05rem solid #dddddd;-webkit-border-radius:0.15rem;-moz-border-radius:0.15rem;border-radius:0.15rem; overflow:hidden}
+
+.brdtop{border-top:0.05rem solid #e7e7e7}
+.brdbom{border-bottom:0.05rem solid #e7e7e7}
+
+/*圆角0.3rem*/
+.radius_03{-webkit-border-radius:0.3rem;-moz-border-radius:0.3rem;border-radius:0.3rem;}
+.radius_04{-webkit-border-radius:0.4rem;-moz-border-radius:0.4rem;border-radius:0.4rem;}
+.radius_05{-webkit-border-radius:0.5rem;-moz-border-radius:0.5rem;border-radius:0.5rem;}
+.radius_50{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;}
+
+/*超出省略*/
+.telpis{white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
+.justify{text-align:justify;text-justify:inter-ideograph;}
+
+
+/*公用宽度*/
+.w10{width:10%}
+.w15{width:15%}
+.w20{width:20%}
+.w25{width:25%}
+.w30{width:30%}
+.w33{width:33.33%}
+.w35{width:35%}
+.w40{width:40%}
+.w45{width:45%}
+.w50{width:50%}
+.w60{width:60%}
+.w65{width:65%}
+.w70{width:70%}
+.w75{width:75%}
+.w80{width:80%}
+.w85{width:85%}
+.w90{width:90%}
+.w95{width:95%}
+
+/*全屏背景*/
+.Popup_bg{position: absolute;bottom: 0;left: 0;background: rgba(0,0,0,.6);z-index:100;width:100%;height:100%;overflow: hidden; z-index:1000}
+.Popup_bg2{position: absolute;bottom: 0;left: 0;background: rgba(0,0,0,.6);z-index:100;width:100%;height:100%;overflow: hidden;z-index:1000}
+.Popup_bgf{position: absolute;bottom: 0;left: 0;background:#f2f3f8;z-index:100;width:100%;height:100%;overflow: hidden;}
+.Popup_bgff{position: absolute;bottom: 0;left: 0;background:#fff;z-index:100;width:100%;height:100%;overflow: hidden;z-index:1000}
+.Popup_bgf0{position: absolute;bottom: 0;left: 0;background:#f0f2f5;z-index:100;width:100%;height:100%;overflow: hidden;z-index:1000}
+.hlbg{height:0.5rem; background:#f0f2f5}
+
+
+.bgff{background-color:#FFF}
+.bgf1{background-color:#f1f1f1}
+
+
+/*按钮*/
+.btn{height:2rem;line-height:1.9rem; text-align:center;margin:0 auto;background:#f2514a;color:#FFF; font-size:0.75rem;-webkit-border-radius:0.3rem;-moz-border-radius:0.3rem;border-radius:0.3rem;overflow:hidden}
+
+.grey_btn{height:2rem;line-height:1.9rem; text-align:center;margin:0 auto;background:lightgrey;color:darkgrey; font-size:0.75rem;-webkit-border-radius:0.3rem;-moz-border-radius:0.3rem;border-radius:0.3rem;overflow:hidden}
+
+/*内部滚动*/
+.potom0{ position:absolute;left:0;top:0rem;bottom:0;width:100%;}
+.layout_box{overflow-y:scroll;position:absolute;left:0;top:0rem;bottom:0;right:0;z-index:1}
+.scroll_ov {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    /*background-color: #fff;*/
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -o-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+/*弹出层背景*/
+.pupbg{position:absolute;bottom:0;left:0;background:rgba(0, 0, 0, 0.6);z-index:999;width:100%;overflow:hidden;height:100%}
+
+
+/*底部连接*/
+.footer{height:2.45rem;position:fixed;bottom:0;left:0;right:0;z-index:99;}
+.footer ul li{float:left;padding-top:0.3rem;text-align:center;height:2.15rem}
+
+/*提示框*/
+.deploy_ctype_tip{
+  z-index:1001;
+  width:100%;
+  text-align:center;
+  position:fixed;
+  top:50%;
+  margin-top:-23px;
+  left:0;
+}
+.deploy_ctype_tip p{
+  display:inline-block;
+  padding:0.25rem 0.5rem;
+  border:solid #f2514a 0.05rem;
+  background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+  font-size:0.8rem;
+  color: #fff;
+  font-size:0.7rem;
+  line-height: 1.5;
+  border-radius: 1rem;
+}

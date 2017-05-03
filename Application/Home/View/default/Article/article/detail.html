@@ -1,0 +1,59 @@
+<extend name="Base/common"/>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9 document">
+        <ol class="breadcrumb">
+            <li class="active">当前位置：</li>
+            <li><a href="__ROOT__/">首页</a></li>
+            <volist name="rightNav" id="nav">
+                <li><a href="{:U('Article/lists?category='.$nav[id])}">{$nav.title}</a></li>
+            </volist>
+        </ol>
+        <div class="title">
+            <h4>{$info.title}</h4>
+            <div class="stats">
+                <span>{$info.create_time|date='Y-m-d H:i',###}</span>
+                <span class="fa fa-eye">{$info.view}</span>
+                <span class="fa fa-comments-o">{$info.comment}</span>
+                <span class="fa fa-thumbs-o-up">{$info.good}</span>
+                <span class="fa fa-star-o">{$info.bookmark}</span>
+            </div>
+        </div>
+        <div class="content text-justify">{$info.content}</div>
+        <div class="tags">
+            <volist name="info.tags" id="tag">
+                <a class="label label-info"><span class="fa fa-tag"></span>{$tag}</a> 
+            </volist>
+        </div>
+        <div class="pre-next clearfix">
+            <article:prev name="prev" info="info">
+                上一篇：<a href="{:U('?id='.$prev['id'])}">{$prev.title}</a>
+            </article:prev>
+            <br>
+            <article:next name="next" info="info">
+                下一篇：<a href="{:U('?id='.$next['id'])}">{$next.title}</a>
+            </article:next>
+        </div>
+        <div class="digg text-left clearfix">
+            <div class="text-center pull-right block-xs">{:hook('BaiduShare',$info)}</div>
+            <a href="{:U('Digg/digg/app/0/type/good/cid/'.$info['id'])}" class="btn <notempty name='digg_good'>btn-inverse</notempty> ajax-digg half-block-xs">
+                <span class="text"><span class="fa fa-thumbs-o-up"></span>点赞</span>
+                <span class="num">{$info.good}</span>
+            </a>
+            <a href="{:U('Digg/digg/app/0/type/bookmark/cid/'.$info['id'])}" class="btn <notempty name='digg_bookmark'>btn-inverse</notempty> ajax-digg half-block-xs">
+                <span class="text"><span class="fa fa-star-o"></span>收藏</span>
+                <span class="num">{$info.bookmark}</span>
+            </a>
+        </div>
+        <include file="Comment/comment"/>
+        {:hook('documentDetailAfter',$info)}
+    </div>
+</block>
+
+<block name="style">
+    <link href="__STATIC__/kindeditor/plugins/code/prettify.css" rel="stylesheet">
+</block>
+<block name="script">
+    <script type="text/javascript" src="__STATIC__/kindeditor/plugins/code/prettify.js" charset="utf-8"></script>
+    <script type="text/javascript">$(function(){window.prettyPrint && prettyPrint();});</script>
+</block>

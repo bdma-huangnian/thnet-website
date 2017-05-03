@@ -1,0 +1,25 @@
+<div class="well well-sm">
+    <div class="user">
+        <a href="{:U('/Tweet/space/uid/'.$info['uid'])}">
+            <img class="avatar" src="{$info.uid|get_user_info='avatar'|get_cover='path'}"/>
+        </a>
+        <a class="username ellipsis inline-block" href="{:U('/Tweet/space/uid/'.$info['uid'])}">{$info.uid|get_user_info='nickname'}</a>
+        <span class="time pull-right">{$info.create_time|friendly_date}</span>
+    </div>
+    <div class="content">
+        {$info.content|sensitive_filter}<br>
+        <notempty name="info['picture']">
+            <img src="{$info.picture|get_cover='path'}">
+        </notempty>
+    </div>
+    <div class="foot stats">
+        <a href="{:U('Digg/digg/app/1/type/good/cid/'.$info['id'])}" class="ajax-digg">
+            <i class="fa fa-thumbs-o-up"></i>
+            <span class="num">{$info.good}</span>
+        </a>
+        <a href="{:U('Tweet/detail/id/'.$info['id'])}" >
+            <i class="fa fa-comments-o"></i>
+            <span class="num">{$info.comment}</span>
+        </a>
+    </div>
+</div>

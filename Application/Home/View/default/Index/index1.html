@@ -1,0 +1,363 @@
+<extend name="Base/common"/>
+<block name="content">
+<section id="about" class="about-section all-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 scrollReveal sr-bottom sr-ease-in-out-quad sr-delay-1">
+                    <h1 class="section-heading">服务范围</h1>
+                    <p class="service-range">新三板上市公司 / 成立于2004年 / 服务3000多家企事业单位 / 300多人服务团队</p>
+                    
+                </div>
+            </div>
+            <div class="height-60"> </div>
+            <div class="row">
+              <div class="col-sm-3 col-xs-12 ">
+               <div class="inner text-center scrollReveal sr-bottom sr-delay-1">
+                            <div class="service"><img src="__IMG__/sign02.png"></div>
+                            <h2 class="service">移动应用开发</h2>
+                            <p class="services">以移动互联网及智能终端为载体，将用户和企业进行连接。公司提供的移动端服务具有高度定制化...</p>
+              </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+               <div class="inner text-center scrollReveal sr-bottom sr-delay-2">
+                            <div class="service"><img src="__IMG__/sign03.png"></div>
+                            <h2 class="service">数字互动营销</h2>
+                            <p class="services">公司以互联网和移动互联网为媒体，利用数字化信息和网络媒体的交互性来帮助企业实现线上营销...</p>
+              </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+               <div class="inner text-center scrollReveal sr-bottom sr-delay-3">
+                            <div class="service"><img src="__IMG__/sign04.png"></div>
+                            <h2 class="service">电商与平台开发</h2>
+                            <p class="services">电子商务综合服务是为了解决消费者的网上购物、商户之间的网上交易和在线支付以及与各种商务...</p>
+              </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+               <div class="inner text-center scrollReveal  sr-bottom sr-delay-4">
+                            <div class="service"><img src="__IMG__/sign01.png"></div>
+                            <h2 class="service">高端网站建设</h2>
+                            <p class="services">提供互联网网站建设综合服务包括企事业数字门户建设、互联网金融平台建设、营销型网站建设...</p>
+              </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter-section  -->
+    <section class="counter-section" style="background: url(__IMG__/bg-1.jpg) no-repeat center center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3 col-xs-12 col-md-3">
+                 <div class="counter  "> 
+                    <i class="ion-ios-people"></i>
+                    <span class="count">1200</span>
+                    <label class="counts">项目</label>
+                    <p class="text-color"></p>
+                </div>
+                    </div>
+                <div class="col-lg-3 col-sm-3 col-xs-12 col-md-3 ">
+                 <div class="counter ">
+                    <i class="ion-ios-people"></i>
+                    <span class="count">800</span>
+                    <label class="counts">员工</label>
+                    <p class="text-color"></p>
+                </div>
+                    </div>
+                <div class="col-lg-3 col-sm-3 col-xs-12 col-md-3">
+                 <div class="counter ">
+                    <i class="ion-ios-people"></i>
+                    <span class="count">2004</span>
+                    <label class="counts">成立</label>
+                    <p class="text-color"></p>
+                </div>
+                    </div>
+                <div class="col-lg-3 col-sm-3 col-xs-12 col-md-3">
+                 <div class="counter ">
+                    <i class="ion-ios-people"></i>
+                    <span class="count">3000</span>
+                    <label class="counts">客户</label>
+                    <p class="text-color"></p>
+                </div>
+                    </div>
+             </div>
+            </div>
+       
+    </section>
+   
+    
+    <!-- work Section -->
+    <section id="work" class="work-section all-space" >
+        <div class="container-fluid no-padding">
+            <div class="row no-margin">
+               <div class="col-lg-12 col-xs-12 scrollReveal sr-bottom sr-ease-in-out-quad sr-delay-1">
+                    <h1 class="section-heading">我们做了什么</h1>
+                    <p class="work">我们大部分业务来自长期合作的客户，我们为绿城集团、万科、华润新鸿基、吉利控股集团、松下电器、海亮集团、西子奥的斯、珀莱雅、太平鸟、中信银行、阿里巴巴等数百个知名品牌与集团提供服务，取得了斐然的成绩。相信知名企业，相信网络。</p>
+                    
+                </div>
+                <div class="height-40"> </div>
+            </div>
+            <div class="height-50"> </div>
+            <div class="Our-work">
+              <div class="row no-margin" id="loadmore">
+               <foreach name="documents" item="sample" key="k">
+                 <div class="col-sm-6 <if condition='$k eq 0'>col-md-6<elseif condition='$k lt 5' />col-md-3<else />col-md-4</if> col-xs-12 no-padding">
+                    <div class="work-wrapper" >
+                      <a href="{:U('News/detail?id='.$sample['id'])}" class="overlay">
+                       <div class="overlay-inner">
+                          <h4 class="base">{$sample.title}</h4>
+                          <div class="line"></div>
+                          <p>Print Media-{$k}</p>
+                         </div>
+                      </a> 
+                      <img src="{$sample.cover_id|get_cover='path'}" alt="work" >
+                    </div>
+                 </div>
+               </foreach>
+              </div>
+              <div class="row no-margin">
+                <div class="col-sm-12 col-md-12 col-xs-12 loading">
+                <div class="work-wrapper">
+                  <button type="button" class="btn btn-primary <if condition='$is_end neq 1'>loadmore</if>">加载更多</button>
+                </div>
+               </div>
+              </div>
+            </div>
+
+        </div>
+        
+    </section>
+    
+    <!-- pricing Section -->
+    <section id="pricing" class="pricing-section" >
+        <div class="container">
+           
+           
+        </div>
+    </section>
+    
+      <!-- CLINTS Section -->
+    <section id="clients" class="clints-section" >
+      <div class="height-60"> </div>
+        <div class="container">
+            <div class="row no-margin">
+               <div class="col-lg-12 col-xs-12 text-center">
+                    <h1 class="section-heading">我们的客户</h1>
+                    <p class="client">他们选择网络！</p>
+                    
+                </div>
+            </div>
+            <div class="height-60"> </div>
+            <div class="clints-block">
+                <div id="owl-clients" class="owl-no-pagination ">
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c2.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c2.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c3.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c3.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c4.png" alt="clints" class="img-responsive" >
+                         <img src="__IMG__/clients/c4.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c5.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c5.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c2.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c3.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c4.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c5.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="clints-box">
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        <img src="__IMG__/clients/c1.png" alt="clints" class="img-responsive" >
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+         <!-- contact Section -->
+    <section id="contact" class="text-center">
+    <div class="height-60"> </div>
+        <div class="container">
+            <div class="row no-margin  ">
+               <div class="col-lg-12 col-xs-12 text-center ">
+                    <h1 class="section-heading">联系我们 </h1>
+                    <p class="contact">网络欢迎您的咨询</p>
+                    
+                </div>
+            </div>
+         <div class="height-60"> </div>
+         <div class="row "> 
+           <div class="col-md-6 col-sm-6 ">
+            <div  class="row">
+              <div class="col-md-12 contact "> <i class="fa fa-map-marker fa-2x"></i>
+                <p class="dark address">浙江省永康市金都大厦27</p>
+              </div>
+              <div class="col-md-12 contact  "> <i class="fa fa-envelope-o fa-2x"></i>
+                <p class="dark email">poster@zjliving.com <br>poster@zjliving.com</p>
+              </div>
+              <div class="col-md-12 contact   "> <i class="fa fa-phone fa-2x"></i>
+                <p class="dark phone">+001 1250 1234 <br>+001 1203 15354</p>
+              </div>
+             </div>
+              
+              <div class="clearfix"></div>
+            </div> 
+           <div class="col-md-6 col-sm-6"> 
+        <div class="scrollReveal sr-right sr-delay-1">  <form name="sentMessage" id="contactForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="姓名" required aria-invalid="false">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="邮箱" required>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="留言..." required aria-invalid="false"></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-lg btn-white-border">发送</button>
+      </form> </div>
+    </div>  
+         </div>
+         
+         
+  </div>
+</section>
+</block>
+
+<block name="script">
+    <script src="__CSS__/bower_components/flexslider/jquery.flexslider-min.js"></script>
+    <script src="__CSS__/bower_components/scrollreveal/dist/scrollreveal.min.js"></script>
+    <!-- jQuery --> 
+    <script src="__JS__/custom.js" type="text/javascript"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="__JS__/bootstrap.min.js"></script>
+   
+    <!-- Scrolling Nav JavaScript -->
+    <script src="__JS__/jquery.easing.min.js"></script>
+    <script src="__JS__/scrolling-nav.js"></script>
+    <script src="__JS__/main.js"></script>
+     <script src="__CSS__/bower_components/owl-carousel/owl.carousel.js"></script>
+    <script>
+        $(function(){
+            $(".newfloat li.litel").hover(function(){
+                var _this = $(this);
+                _this.removeClass("hover").stop().animate({left : - 184}, 400)
+            }, function(){
+                var _this = $(this);
+                _this.stop().animate({left : 0}, 400, function(){
+                    _this.addClass("hover")
+                })
+            })
+            $(".newfloat li.lia").hover(function(){
+                $(this).removeClass("hover").stop().animate({marginLeft : - 10}, 400)
+            }, function(){
+                var _this = $(this);
+                _this.stop().animate({marginLeft : 0}, 400, function(){
+                    _this.addClass("hover")
+                })
+            })
+
+
+        })
+    </script>
+    <script type="text/javascript">
+      $(function(){
+        var $loadMore = $('.loadmore');
+        var page = 1;
+        var url = '{:U("Index/index")}';
+        var isEnd = false;
+
+        $loadMore
+        .on('click', function(e){
+          if (!isEnd) {
+            $.ajax({
+              url: url,
+              type: 'get',
+              data: {page:page},
+              success: function(data){
+                if (data.status == 1) {
+                  $.each(data.data, function(index, item){
+                    var _html = '<div class="col-sm-6 col-md-4 col-xs-12 no-padding"><div class="work-wrapper" >';
+                    _html += '<a href="'+item.link+'" class="overlay"><div class="overlay-inner">';
+                    _html += '<h4 class="base">'+item.title+'</h4>';
+                    _html += '<div class="line"></div><p>Print Media</p></div></a>';
+                    _html += '<img src="'+item.imgurl+'" alt="work" ></div></div>';
+
+                    $('#loadmore').append(_html);
+                  });
+                  page++;
+                  if (data.is_end == 1) {
+                    $('.loadmore').text('加载完毕').removeClass('loadmore');
+                    isEnd = true;
+                  };
+                };
+              },
+              error: function(data){}
+            });
+          };
+        });
+        
+    });
+  </script>
+</block>

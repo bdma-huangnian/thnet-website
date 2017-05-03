@@ -1,0 +1,71 @@
+body {
+    padding: 50px 0 54px;
+}
+.navbar,
+footer {
+    margin-bottom: 0;
+    border: none;
+    min-height: 10px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.9);
+}
+.navbar .navbar-brand {
+    color: #428bca;
+    font-size: 20px;
+}
+footer {
+    padding: 10px 0;
+}
+.jumbotron {
+    position: relative;
+    padding: 10px 0;
+    color: #fff;
+    margin-bottom: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+    background-color: #2d87e2;
+    background-image: -webkit-linear-gradient(top, #1b6ec1 0%, #2d87e2 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1b6ec1), to(#2d87e2));
+    background-image:            -o-linear-gradient(top, #1b6ec1 0%, #2d87e2 100%);
+    background-image:                 linear-gradient(to bottom, #1b6ec1 0%, #2d87e2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b6ec1', endColorstr='#2d87e2', GradientType=0);
+    -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+    box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+}
+.jumbotron:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../images/masthead-pattern.png) repeat center center;
+}
+.jumbotron h2 {
+    color: #fff;
+}
+.jumbotron input {
+    color: #000;
+}
+.jumbotron .container {
+    position: relative;
+    z-index: 2
+}
+.ico-success,
+.ico-error {
+    vertical-align: -1px;
+    *vertical-align: middle;
+    margin-right: 6px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 9;
+    overflow: hidden;
+}
+.ico-success {
+    background: url(../images/ok.png) no-repeat 0 0;
+}
+.ico-error {
+    background: url(../images/error.png) no-repeat 0 0;
+}

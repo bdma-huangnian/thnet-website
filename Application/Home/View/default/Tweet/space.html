@@ -1,0 +1,50 @@
+<extend name="Base/common" />
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">{$user_id|get_user_info='nickname'}的空间</h1>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div class="tweets">
+            <?php if($user_id == is_login()): ?>
+                <include file="Tweet/add"/>
+            <?php endif; ?>
+            <volist name="tweets" id="info">
+                <include file="Tweet/tweet"/>
+            </volist>
+            {$page}
+        </div>
+    </div>
+</block>
+
+<block name="side">
+    <div class="col-xs-12 col-sm-3">
+        <div class="user-space-side">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{:U('/User/space/uid/'.$user_id)}">
+                        <img class="avatar" src="{$user_id|get_user_info='avatar'|get_cover='path'}"/>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">{$user_id|get_user_info='nickname'}</h4>
+                            <div class="stats clearfix">
+                                <a href="#"> 0 <span>粉丝</span></a>
+                                <a href="#"> 0 <span>关注</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

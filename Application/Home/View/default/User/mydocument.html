@@ -1,0 +1,27 @@
+<extend name="Base/common" />
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">我的文档</h1>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9">
+        <div><legend class="legend">您发布的文档</legend></div>
+        <article:list name="article" child="true" uid="(int)$user_info['uid']" row="10" order="'`create_time` DESC'">
+            <include file="Article/document"/>
+        </article:list>
+        <article:page row="10" uid="$user_info['uid']"/>
+    </div>
+</block>
+
+<block name="side">
+    <div class="col-xs-12 col-sm-3">
+      <include file="User/side"/>
+    </div>
+</block>

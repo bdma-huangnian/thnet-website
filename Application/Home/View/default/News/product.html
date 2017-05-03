@@ -1,0 +1,16 @@
+<div class="grid-item">
+	<div class="itembox"> 
+	    <a href="{:U('News/detail?type=1&id='.$product['id'])}" target="_blank" class="title" title="{$product.title}">{$product.title}</a> 
+	    <!-- <div class="time">2013-10-09</div> --> 
+	    <a href="{:U('News/detail?type=1&id='.$product['id'])}" target="_blank" title="{$product.title}"> 
+	    	<img alt="{$product.title}" src="{$product.cover_id|get_cover='path'}"  class="wfimg lazyload" data-original="{$product.cover_id|get_cover='path'}"> 
+	    </a> 
+	    <a href="{:U('News/detail?type=1&id='.$product['id'])}" target="_blank">{$product.description}…       
+	    </a> 
+	</div>
+	<div class="itemtips">
+	    <p>
+	        <a href="{:U('News/detail?type=1&id='.$product['id'])}" title="集团网站建设"> 集团 </a>
+	    </p>
+	</div>
+</div>

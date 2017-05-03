@@ -1,0 +1,20 @@
+<div class="media list-box">
+    <a class="pull-left" href="{:U('Article/detail?id='.$article['id'])}">
+        <img class="cover" src="{$article.cover_id|get_cover='path'}">
+    </a>
+    <div class="media-body">
+        <h3>
+            <a href="{:U('Article/detail?id='.$article['id'])}" title="{$article.title}" style="color:{$article.color};">{$article.title|getstr=0,32,'utf-8',true}</a>
+        </h3>
+        <p class="lead hidden-xs">{$article.description}...</p>
+        <div class="stats clearfix">
+            <span>
+                <span class="fa fa-eye">阅读( {$article.view} )</span>
+                <span class="fa fa-comments-o">评论( {$article.comment} )</span>
+                <span class="fa fa-thumbs-o-up">点赞( {$article.good} )</span>
+            </span>
+            <span class="time pull-right hidden-xs">{$article.create_time|friendly_date}</span>
+        </div>
+    </div>
+</div>
+<hr>

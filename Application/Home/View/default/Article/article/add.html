@@ -1,0 +1,140 @@
+<extend name="Base/common"/>
+
+<block name="header">
+    <header>
+        <div class="jumbotron header">
+            <div class="container">
+                <h1 class="ellipsis">发布文档</h1>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-9 main-content">
+        <div><legend class="legend">发布文档</legend></div>
+        <form class="form-horizontal form-post" action="__SELF__" method="post" role="form">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">分类</label>
+                <div class="col-sm-11">
+                    <select class="form-control" name="category_id">
+                        <volist name="tree" id="cate">
+                            <option value="{$cate.id}">{$cate.title}</option>
+                        </volist>
+                    <select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">标题</label>
+                <div class="col-sm-11">
+                    <input type="text" placeholder="填写文档标题" class="form-control" name="title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">标签</label>
+                <div class="col-sm-11">
+                    <input type="text" placeholder="输入相关标签" class="form-control tags" name="tags" value="">
+                    <link rel="stylesheet" type="text/css" href="__STATIC__/tokeninput/token-input.css">
+                    <style>ul.token-input-list{width: 100%;}</style>
+                    <script src="__STATIC__/tokeninput/jquery.tokeninput.min.js"></script>
+                    <script type="text/javascript">
+                        // 标签自动完成提示
+                        $('.tags ').tokenInput(
+                        "{:U('/Tags/tags')}", {
+                            propertyToSearch    :   'title',
+                            tokenValue          :   'title',
+                            searchDelay         :   0,
+                            tokenLimit          :   10,
+                            preventDuplicates   :   true,
+                            animateDropdown     :   true,
+                            allowFreeTagging    :   true,
+                            hintText            :   '请输入标签名',
+                            noResultsText       :   '此标签不存在, 按回车创建',
+                            searchingText       :   "查找中..."
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">简介</label>
+                <div class="col-sm-11">
+                    <textarea name="description" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">正文</label>
+                <div class="col-sm-11">
+                    <textarea name="content" class="form-control"></textarea>
+                    {:hook('homeArticleEdit', array('name'=>'content'))}
+                </div>
+            </div>
+            <div class="form-group">
+                <lable class="col-sm-1 control-label">封面</lable>
+                <div class="col-sm-11">
+                    <a href="#" id="upload_picture_cover" class="form-control btn btn-outline">上 传 封 面</a>
+                    <input type="hidden" name="cover_id" id="cover_id"/>
+                    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+                    <script type="text/javascript">
+                        //上传图片
+                        /* 初始化上传插件 */
+                        $("#upload_picture_cover").uploadify({
+                            "height"          : 30,
+                            "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                            "fileObjName"     : "download",
+                            "buttonText"      : "上 传 封 面",
+                            "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+                            "width"           : 204,
+                            'removeTimeout'      : 1,
+                            'fileTypeExts'      : '*.jpg; *.png; *.gif;',
+                            "onUploadSuccess" : uploadPicture{$field.name},
+                            'onFallback' : function() {
+                                alert('未检测到兼容版本的Flash.');
+                            }
+                        });
+                        function uploadPicture{$field.name}(file, data){
+                            var data = $.parseJSON(data);
+                            var src = '';
+                            if(data.status){
+                                $("#cover_id").val(data.id);
+                                src = data.url || '__ROOT__' + data.path
+                                $("#cover_preview").html(
+                                    '<img src="' + src + '"style="' + 'width: 100%; max-height: 200px;">'
+                                );
+                            } else {
+                                swal({
+                                    type: "error",
+                                    title: "Oops...",
+                                    text: data.info,
+                                    timer: 2000
+                                });
+                                setTimeout(function(){
+                                    $(that).removeClass('disabled').prop('disabled',false);
+                                },2000);
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">预览</label>
+                <div class="col-sm-11" id="cover_preview">
+                    <img class="cover" src="{$info.cover_id|get_cover='path'}" style="width: 204px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <input type="hidden" name="type" value="2"/>
+                    <input type="hidden" name="model_id" value="2"/>
+                    <button type="submit" class="btn btn-outline ajax-post block-xs" target-form="form-post">发 布</button>
+                    <button type="reset" class="btn btn-outline hidden-xs">重 置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+
+<block name="side">
+    <div class="col-xs-12 col-sm-3">
+        <include file="User/side"/>
+    </div>
+</block>

@@ -1,0 +1,78 @@
+<extend name="Base/common" />
+
+<block name="header">
+    <header class="jumbotron header">
+        <div>
+            <div class="container">
+                <h1 class="ellipsis">用户注册</h1>
+                <p class="ellipsis">已经有账号? <a href="{:U('User/login')}">点此登录</a></p>
+            </div>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <form class="form reg-form clearfix" action="__SELF__" method="post">
+            <div>
+                <legend class="legend">注册新账号</legend>
+            </div>
+            <div class="form-group">
+                <label class="control-label">用户名</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" class="form-control" placeholder="请输入用户名" value="" name="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">确认密码</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="请再次输入密码" name="repassword">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">邮箱</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input type="text" class="form-control" placeholder="请输入电子邮件" value="" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">手机号</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                    <input type="text" class="form-control" placeholder="请输入手机号码" value="" name="mobile">
+                </div>
+            </div>
+            <php>if(C('WEB_SITE_VERIFY_HOME')):</php>
+                <div class="form-group">
+                    <label class="control-label">验证码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                        <input type="text" class="form-control" placeholder="请输入验证码" name="verify">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img class="verifyimg reloadverify" alt="点击切换" src="{:U('User/verify')}" style="cursor:pointer;">
+                </div>
+            <php>endif;</php>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline ajax-post block-xs" target-form="reg-form">注 册</button>
+                <button type="reset" class="btn btn-outline hidden-xs">重 置</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        {:Hook('SyncLogin')}
+    </div>
+</block>
+
+<block name="side"></block>

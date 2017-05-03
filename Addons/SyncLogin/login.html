@@ -1,0 +1,20 @@
+<style type="text/css">
+.synclogin .qq,.synclogin .sina,.synclogin .renren,.synclogin .google{width: 49.5%;float: left;margin-bottom: 10px;}
+.synclogin .qq,.synclogin .renren {margin-right: 1%;}
+.synclogin .fa-qq,.synclogin .fa-weibo,.synclogin .fa-renren,.synclogin .fa-google{float: left;width: 34px;height: 34px;line-height: 34px;margin-top:-7px;margin-bottom:-7px;margin-left:-13px;margin-right: 0;}
+.synclogin .fa-qq {background: #1B752D;}
+.synclogin .fa-weibo {background: #B30F2E;}
+.synclogin .fa-renren {background: #007894;}
+.synclogin .fa-google {background: #995C00;}
+</style>
+<php>if(!empty($config['type'])){</php>
+    <div class="synclogin">
+        <div><legend>直接使用社交账号登录</legend></div>
+        <div class="clearfix">
+            <a class="btn btn-success qq" href="<php>if(in_array('Qq',$config['type'])){ echo addons_url('SyncLogin://Base/login',array('type'=>'qq'));}</php>"><i class="fa fa-qq"></i> 用QQ账号登录</a>
+            <a class="btn btn-danger sina" href="<php>if(in_array('Sina',$config['type'])){ echo addons_url('SyncLogin://Base/login',array('type'=>'sina'));}</php>"><i class="fa fa-weibo"></i> 用微博账号登录</a>
+            <a class="btn btn-info renren" href="<php>if(in_array('Renren',$config['type'])){ echo addons_url('SyncLogin://Base/login',array('type'=>'renren'));}</php>"><i class="fa fa-renren"></i> 用人人账号登录</a>
+            <a class="btn btn-warning google" href="<php>if(in_array('Google',$config['type'])){ echo addons_url('SyncLogin://Base/login',array('type'=>'google'));}</php>"><i class="fa fa-google"></i> 用谷歌账号登录</a>
+        </div>
+    </div>
+<php>}</php>
